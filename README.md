@@ -18,8 +18,8 @@ npm run lint
 npm run lint:fix
 ```
 
-## Running
+## Running dev server
 
 ```bash
-npm start
+npm run dev
 ```
