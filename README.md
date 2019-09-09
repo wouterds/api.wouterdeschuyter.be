@@ -12,7 +12,7 @@ npm install
 npm run lint
 ```
 
-### Auto fix potential issues
+### Autofix
 
 ```bash
 npm run lint:fix
