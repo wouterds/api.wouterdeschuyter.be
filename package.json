@@ -9,8 +9,8 @@
     "url": "https://wouterdeschuyter.be"
   },
   "scripts": {
-    "lint": "standard",
-    "lint:fix": "standard --fix"
+    "lint": "standard **/*.ts",
+    "lint:fix": "standard **/*.ts --fix"
   },
   "dependencies": {
     "express": "^4.17.1"
