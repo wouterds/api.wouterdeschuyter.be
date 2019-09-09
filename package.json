@@ -8,7 +8,10 @@
     "email": "wouter.de.schuyter@gmail.com",
     "url": "https://wouterdeschuyter.be"
   },
-  "scripts": {},
+  "scripts": {
+    "lint": "standard",
+    "lint:fix": "standard --fix"
+  },
   "dependencies": {
     "express": "^4.17.1"
   },
