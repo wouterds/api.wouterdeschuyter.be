@@ -17,3 +17,9 @@ npm run lint
 ```bash
 npm run lint:fix
 ```
+
+## Running
+
+```bash
+npm start
+```
