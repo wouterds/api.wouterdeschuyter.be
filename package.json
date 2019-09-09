@@ -1,0 +1,19 @@
+{
+  "name": "api.wouterdeschuyter.be",
+  "version": "0.1.0",
+  "private": true,
+  "repository": "github:wouterds/api.wouterdeschuyter.be",
+  "author": {
+    "name": "Wouter De Schuyter",
+    "email": "wouter.de.schuyter@gmail.com",
+    "url": "https://wouterdeschuyter.be"
+  },
+  "scripts": {},
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.1",
+    "typescript": "^3.6.2"
+  }
+}

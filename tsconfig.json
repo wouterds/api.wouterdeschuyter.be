@@ -1,0 +1,27 @@
+
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "*" : ["./src/*"]
+    },
+    "lib": ["es6"],
+    "target": "esnext",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "types": ["node"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "exclude": [
+    "node_modules/"
+  ]
+}
+
+
