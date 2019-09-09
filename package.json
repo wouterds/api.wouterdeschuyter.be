@@ -9,6 +9,7 @@
     "url": "https://wouterdeschuyter.be"
   },
   "scripts": {
+    "start": "ts-node src/http",
     "lint": "standardx **/*.ts --verbose | snazzy",
     "lint:fix": "standardx **/*.ts --fix"
   },
