@@ -10,8 +10,8 @@
   },
   "scripts": {
     "dev": "nodemon",
-    "sync:models": "ts-node src/scripts/sync-models",
-    "server:dev": "ts-node src/http",
+    "sync:models": "ts-node -r src/bootstrap src/scripts/sync-models",
+    "server:dev": "ts-node -r src/bootstrap src/http",
     "lint": "standardx src/**/*.ts --verbose | snazzy",
     "lint:fix": "standardx src/**/*.ts --fix",
     "build": "webpack --config webpack.config.ts"
