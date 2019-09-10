@@ -11,7 +11,8 @@
   "scripts": {
     "dev": "ts-node src/http",
     "lint": "standardx **/*.ts --verbose | snazzy",
-    "lint:fix": "standardx **/*.ts --fix"
+    "lint:fix": "standardx **/*.ts --fix",
+    "build": "webpack --config webpack.config.ts"
   },
   "dependencies": {
     "dotenv": "^8.1.0",
