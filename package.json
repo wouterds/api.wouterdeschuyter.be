@@ -10,6 +10,7 @@
   },
   "scripts": {
     "dev": "nodemon",
+    "sync:models": "ts-node src/scripts/sync-models",
     "server:dev": "ts-node src/http",
     "lint": "standardx src/**/*.ts --verbose | snazzy",
     "lint:fix": "standardx src/**/*.ts --fix",

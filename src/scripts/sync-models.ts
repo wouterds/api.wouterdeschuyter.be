@@ -1,4 +1,3 @@
-import 'bootstrap';
 import { readdirSync } from 'fs';
 import sequelize from 'services/sequelize';
 import { resolve } from 'path';
