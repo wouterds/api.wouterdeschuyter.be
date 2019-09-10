@@ -2,14 +2,6 @@
 
 ## Setup
 
-### Dependencies
-
-```bash
-npm install
-```
-
-### Configuration
-
 ```bash
 cp .env.example .env
 ```
@@ -32,16 +24,8 @@ npm run lint:fix
 npm run build
 ```
 
-## Running locally
-
-### Database
+## Running in dev
 
 ```bash
 docker-compose -f .docker/docker-compose.dev.yml up
-```
-
-### Node
-
-```bash
-npm run dev
 ```
