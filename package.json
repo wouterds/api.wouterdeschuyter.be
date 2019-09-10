@@ -45,8 +45,8 @@
   },
   "eslintConfig": {
     "rules": {
-      "semi": "off",
-      "comma-dangle": "off"
+      "semi": ["error", "always"],
+      "comma-dangle": ["error", "always-multiline"]
     }
   }
 }
