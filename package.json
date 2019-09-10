@@ -37,6 +37,12 @@
     "webpack-cli": "^3.3.8",
     "webpack-node-externals": "^1.7.2"
   },
+  "standardx": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
+    ]
+  },
   "eslintConfig": {
     "rules": {
       "semi": "off",
