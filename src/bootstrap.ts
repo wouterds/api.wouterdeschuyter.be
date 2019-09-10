@@ -1,6 +1,6 @@
 import { config as dotenv } from 'dotenv';
 import { register as tsconfigPaths } from 'tsconfig-paths';
-import tsconfig from '../tsconfig.json';
+import tsconfig from './../tsconfig.json';
 
 dotenv();
 
