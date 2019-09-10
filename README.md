@@ -26,7 +26,15 @@ npm run lint
 npm run lint:fix
 ```
 
-## Running dev server
+## Running locally
+
+### Database
+
+```bash
+docker-compose -f .docker/docker-compose.dev.yml up
+```
+
+### Node
 
 ```bash
 npm run dev
