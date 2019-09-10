@@ -2,8 +2,16 @@
 
 ## Setup
 
+### Dependencies
+
 ```bash
 npm install
+```
+
+### Configuration
+
+```bash
+cp .env.example .env
 ```
 
 ## Linting
