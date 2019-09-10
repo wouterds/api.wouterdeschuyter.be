@@ -26,6 +26,12 @@ npm run lint
 npm run lint:fix
 ```
 
+## Building
+
+```bash
+npm run build
+```
+
 ## Running locally
 
 ### Database
