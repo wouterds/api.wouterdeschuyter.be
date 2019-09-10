@@ -9,3 +9,14 @@ services:
       - 3306:3306
     environment:
       - MYSQL_ROOT_PASSWORD=root
+
+  node:
+    image: node:12-slim
+    volumes:
+      - ../:/code
+    working_dir: /code
+    command: bash -c "npm install --loglevel verbose && npm run dev"
+    ports:
+      - 3000:3000
+    depends_on:
+      - mariadb
