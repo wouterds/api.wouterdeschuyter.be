@@ -27,7 +27,8 @@
     "snazzy": "^8.0.0",
     "standardx": "^5.0.0",
     "ts-node": "^8.3.0",
-    "typescript": "^3.6.2"
+    "typescript": "^3.6.2",
+    "webpack": "^4.39.3"
   },
   "eslintConfig": {
     "rules": {
