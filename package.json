@@ -9,9 +9,10 @@
     "url": "https://wouterdeschuyter.be"
   },
   "scripts": {
-    "dev": "ts-node src/http",
-    "lint": "standardx **/*.ts --verbose | snazzy",
-    "lint:fix": "standardx **/*.ts --fix",
+    "dev": "nodemon",
+    "server:dev": "ts-node src/http",
+    "lint": "standardx src/**/*.ts --verbose | snazzy",
+    "lint:fix": "standardx src/**/*.ts --fix",
     "build": "webpack --config webpack.config.ts"
   },
   "dependencies": {
