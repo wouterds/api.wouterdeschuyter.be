@@ -13,7 +13,7 @@
     "sync:models": "ts-node -r ./src/bootstrap ./src/scripts/sync-models",
     "server:dev": "ts-node -r ./src/bootstrap ./src/server",
     "lint": "standardx './src/**/*.ts' --verbose | snazzy",
-    "lint:fix": "standardx './src/**/*.ts' --fix",
+    "lint:fix": "standardx './src/**/*.ts' --fix && prettier './src/**/*.ts' --write",
     "build": "webpack --config ./webpack.config.ts"
   },
   "dependencies": {
