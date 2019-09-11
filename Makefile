@@ -4,7 +4,7 @@ PROJECT = $(shell cat package.json | grep "\"name\"" | sed -e 's/^.*: "\(.*\)".*
 
 DOCKERFILE_NODE = ./.docker/node/Dockerfile
 
-TAG_NODE = $(DOCKER_REGISTRY)/$(PROJECT)${ENV_SUFFIX}-node
+TAG_NODE = $(DOCKER_REGISTRY_HOST)/$(PROJECT)${ENV_SUFFIX}-node
 
 all: build
 
