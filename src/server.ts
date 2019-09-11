@@ -3,7 +3,11 @@ import { ApolloServer } from 'apollo-server-express';
 import resolvers from 'graphql/resolvers';
 import typeDefs from 'graphql/schema';
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  playground: process.env.NODE_ENV !== 'production',
+});
 
 const app = express();
 server.applyMiddleware({ app });
