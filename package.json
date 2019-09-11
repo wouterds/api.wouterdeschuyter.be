@@ -9,6 +9,7 @@
     "url": "https://wouterdeschuyter.be"
   },
   "scripts": {
+    "start": "node server",
     "dev": "nodemon",
     "sync:models": "ts-node -r ./src/bootstrap ./src/scripts/sync-models",
     "server:dev": "ts-node -r ./src/bootstrap ./src/server",
