@@ -8,3 +8,8 @@ type Post {
   body: String
   views: Int
 }
+
+type Query {
+  posts: [Post]
+  post(id: String!): Post
+}
