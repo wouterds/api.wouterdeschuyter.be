@@ -1,4 +1,4 @@
-FROM node:12-slim
+FROM arm32v6/node:12-slim
 
 WORKDIR /code
 
@@ -7,7 +7,7 @@ RUN npm install --production
 
 COPY ./dist /code
 
-FROM node:12-alpine
+FROM arm32v6/node:12-alpine
 
 WORKDIR /code
 
