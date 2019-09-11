@@ -43,3 +43,6 @@ jobs:
           command: |
             docker login $DOCKER_REGISTRY_HOST -u $DOCKER_REGISTRY_USER -p $DOCKER_REGISTRY_PASS
             make push
+      - run:
+          name: Deploy
+          command: make deploy
