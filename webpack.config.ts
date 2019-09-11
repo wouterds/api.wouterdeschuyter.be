@@ -1,19 +1,21 @@
 import path from 'path';
 import { Configuration } from 'webpack';
+import { readdirSync } from 'fs';
 import nodeExternals from 'webpack-node-externals';
+
+const extensions = ['.json', '.graphql', '.ts'];
 
 const config: Configuration = {
   mode: 'production',
+  target: 'node',
+  externals: [nodeExternals()],
   entry: {
     server: './src/server.ts',
   },
   output: {
     path: path.resolve(__dirname, './dist'),
   },
-  externals: [nodeExternals()],
-  resolve: {
-    extensions: ['.json', '.graphql', '.ts'],
-  },
+  resolve: { extensions },
   module: {
     rules: [
       {
@@ -29,7 +31,32 @@ const config: Configuration = {
       {
         test: /\.ts$/,
         exclude: /node_modules/,
-        use: [{ loader: 'babel-loader' }, { loader: 'ts-loader' }],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              plugins: [
+                [
+                  'module-resolver',
+                  {
+                    root: ['./src'],
+                    alias: readdirSync('./src', { withFileTypes: true })
+                      .filter(dirent => dirent.isDirectory())
+                      .map(dirent => dirent.name)
+                      .reduce(
+                        (res, item) => ({
+                          ...res,
+                          [item]: `./src/${item}`,
+                        }),
+                        {}
+                      ),
+                  },
+                ],
+              ],
+            },
+          },
+          { loader: 'ts-loader' },
+        ],
       },
     ],
   },
