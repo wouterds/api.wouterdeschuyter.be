@@ -1,21 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from 'services/sequelize';
 
-export interface Definition {
-  id: string;
-  userId: string;
-  mediaId: string;
-  title: string;
-  slug: string;
-  excerpt: string;
-  body: string;
-  views: number;
-  publishedAt: Date | null;
-  createdAt: Date;
-  updatedAt: Date | null;
-  deletedAt: Date | null;
-}
-
 class Post extends Model {}
 Post.init(
   {

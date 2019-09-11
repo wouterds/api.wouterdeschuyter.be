@@ -1,18 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from 'services/sequelize';
 
-export interface Definition {
-  id: string;
-  userId: string;
-  name: string;
-  url: string | null;
-  contentType: string | null;
-  size: number | null;
-  createdAt: Date;
-  updatedAt: Date | null;
-  deletedAt: Date | null;
-}
-
 class Media extends Model {}
 Media.init(
   {

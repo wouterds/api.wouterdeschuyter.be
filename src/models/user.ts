@@ -1,18 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from 'services/sequelize';
 
-export interface Definition {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  salt: string;
-  password: string;
-  createdAt: Date;
-  updatedAt: Date | null;
-  deletedAt: Date | null;
-}
-
 class User extends Model {}
 User.init(
   {
