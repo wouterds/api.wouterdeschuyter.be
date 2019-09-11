@@ -22,3 +22,13 @@ jobs:
               echo 'export DATABASE_USER="$PRODUCTION_DATABASE_USER"' >> $BASH_ENV
               echo 'export DATABASE_PASS="$PRODUCTION_DATABASE_PASS"' >> $BASH_ENV
             fi
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Dependencies
+          command: make node_modules
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: dependencies-{{ checksum "package.json" }}
