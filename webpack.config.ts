@@ -1,7 +1,8 @@
 import path from 'path';
-import { Configuration } from 'webpack';
+import { Configuration, EnvironmentPlugin } from 'webpack';
 import { readdirSync } from 'fs';
 import nodeExternals from 'webpack-node-externals';
+import dotenv from 'dotenv';
 
 const extensions = ['.json', '.graphql', '.ts'];
 
@@ -60,6 +61,11 @@ const config: Configuration = {
       },
     ],
   },
+  plugins: [
+    new EnvironmentPlugin(
+      Object.keys(dotenv.config({ path: '.env.example' }).parsed || {})
+    ),
+  ],
 };
 
 export default config;
