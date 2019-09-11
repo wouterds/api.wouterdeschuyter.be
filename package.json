@@ -3,11 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "repository": "github:wouterds/api.wouterdeschuyter.be",
-  "author": {
-    "name": "Wouter De Schuyter",
-    "email": "wouter.de.schuyter@gmail.com",
-    "url": "https://wouterdeschuyter.be"
-  },
+  "author": "Wouter De Schuyter <wouter.de.schuyter@gmail.com>",
   "scripts": {
     "start": "node server",
     "dev": "nodemon",
