@@ -1,4 +1,4 @@
-FROM arm32v6/node:12-slim
+FROM arm32v6/node:12-alpine
 
 WORKDIR /code
 
