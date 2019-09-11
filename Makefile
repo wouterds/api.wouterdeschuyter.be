@@ -12,6 +12,9 @@ all: build
 clean:
 	-rm -rf node_modules
 	-rm -rf dist
+	-rm -rf .env
+	-rm -rf .build-*
+	-rm -rf qemu-arm-static
 
 node_modules: package.json
 	docker run --rm -v $(PWD):/code -w /code node:12-slim npm install --loglevel verbose
