@@ -12,9 +12,9 @@ type Args = {
 const addPost = (_parent: any, args: Args) => {
   const { userId, mediaId, title, slug, excerpt, body } = args;
 
-  return Post.create({ userId, mediaId, title, slug, excerpt, body })
+  return Post.create({ userId, mediaId, title, slug, excerpt, body });
 };
 
 export default {
-  addPost
+  addPost,
 };
