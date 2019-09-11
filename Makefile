@@ -13,7 +13,7 @@ clean:
 	-rm -rf dist
 
 node_modules: package.json
-	docker run --rm -v $(PWD):/code -w /code node:12-slim npm install
+	docker run --rm -v $(PWD):/code -w /code node:12-slim npm install --loglevel verbose
 
 lint: node_modules
 	docker run --rm -v $(PWD):/code -w /code node:12-slim npm run lint
