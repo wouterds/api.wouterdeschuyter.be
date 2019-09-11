@@ -2,6 +2,7 @@ FROM arm32v6/node:12-slim
 
 WORKDIR /code
 
+COPY ./qemu-arm-static /usr/bin/qemu-arm-static
 COPY ./package*.json ./
 RUN npm install --production
 
