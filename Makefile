@@ -28,3 +28,7 @@ lint: node_modules
 
 build: .build-node
 	docker tag $(TAG_NODE) $(TAG_NODE):$(VERSION)
+
+push: build
+	docker push $(TAG_NODE)
+	docker push $(TAG_NODE):$(VERSION)
