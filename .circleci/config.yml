@@ -32,3 +32,6 @@ jobs:
           paths:
             - ./node_modules
           key: dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Linting
+          command: make lint
