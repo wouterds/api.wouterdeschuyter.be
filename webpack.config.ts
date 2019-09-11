@@ -12,7 +12,7 @@ const config: Configuration = {
   },
   externals: [nodeExternals()],
   resolve: {
-    extensions: ['.json', '.ts'],
+    extensions: ['.json', '.graphql', '.ts'],
   },
   module: {
     rules: [
@@ -20,6 +20,11 @@ const config: Configuration = {
         test: /\.json$/,
         exclude: /node_modules/,
         use: [{ loader: 'json-loader' }],
+      },
+      {
+        test: /\.graphql$/,
+        exclude: /node_modules/,
+        use: [{ loader: 'graphql-tag/loader' }],
       },
       {
         test: /\.ts$/,
