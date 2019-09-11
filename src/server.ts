@@ -8,6 +8,9 @@ const server = new ApolloServer({ typeDefs, resolvers });
 const app = express();
 server.applyMiddleware({ app });
 
+// Hello world on root
+app.get('/', (_req, res) => res.send(`Hello world! ${new Date().toISOString()}`));
+
 app.listen(3000, () => {
   console.log(`> Application is running on http://localhost:3000${server.graphqlPath} 🚀`);
 });
