@@ -1,12 +1,12 @@
 import Post from 'models/post';
 
 type Args = {
-  userId: string,
-  mediaId: string,
-  title: string,
-  slug: string,
-  excerpt: string,
-  body: string,
+  userId: string;
+  mediaId: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  body: string;
 };
 
 const addPost = (_parent: any, args: Args) => {

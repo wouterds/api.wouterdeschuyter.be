@@ -1,15 +1,15 @@
 import path from 'path';
-import webpack from 'webpack';
+import { Configuration } from 'webpack';
 import nodeExternals from 'webpack-node-externals';
 
-const config: webpack.Configuration = {
+const config: Configuration = {
   mode: 'production',
   entry: './src/server.ts',
   output: {
     filename: './server.js',
-    path: path.resolve(__dirname, './dist')
+    path: path.resolve(__dirname, './dist'),
   },
-  externals: [ nodeExternals() ],
+  externals: [nodeExternals()],
 };
 
 export default config;

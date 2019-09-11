@@ -4,7 +4,11 @@ import sequelize from 'services/sequelize';
 class User extends Model {}
 User.init(
   {
-    id: { type: DataTypes.UUID, defaultValue: DataTypes.UUIDV4, primaryKey: true },
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
+    },
     firstName: { type: DataTypes.STRING(32), allowNull: false },
     lastName: { type: DataTypes.STRING(32), allowNull: false },
     email: { type: DataTypes.STRING(64), allowNull: false },
@@ -21,7 +25,7 @@ User.init(
         fields: ['email'],
       },
     ],
-  },
+  }
 );
 
 export default User;

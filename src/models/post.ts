@@ -4,9 +4,21 @@ import sequelize from 'services/sequelize';
 class Post extends Model {}
 Post.init(
   {
-    id: { type: DataTypes.UUID, defaultValue: DataTypes.UUIDV4, primaryKey: true },
-    userId: { type: DataTypes.UUID, defaultValue: DataTypes.UUIDV4, allowNull: false },
-    mediaId: { type: DataTypes.UUID, defaultValue: DataTypes.UUIDV4, allowNull: false },
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
+    },
+    userId: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: false,
+    },
+    mediaId: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: false,
+    },
     title: { type: DataTypes.STRING(191), allowNull: false },
     slug: { type: DataTypes.STRING(191), allowNull: false },
     excerpt: { type: DataTypes.TEXT, allowNull: false },
@@ -26,7 +38,7 @@ Post.init(
         fields: ['mediaId'],
       },
     ],
-  },
+  }
 );
 
 export default Post;
