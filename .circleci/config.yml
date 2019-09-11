@@ -5,3 +5,20 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - run:
+          name: Environment variables
+          command: |
+            if [ "$CIRCLE_BRANCH" == "develop" ]; then
+              echo 'export ENV_SUFFIX="$STAGING_ENV_SUFFIX"' >> $BASH_ENV
+              echo 'export DATABASE_HOST="$STAGING_DATABASE_HOST"' >> $BASH_ENV
+              echo 'export DATABASE_NAME="$STAGING_DATABASE_NAME"' >> $BASH_ENV
+              echo 'export DATABASE_USER="$STAGING_DATABASE_USER"' >> $BASH_ENV
+              echo 'export DATABASE_PASS="$STAGING_DATABASE_PASS"' >> $BASH_ENV
+            fi
+            if [ "$CIRCLE_BRANCH" == "master" ]; then
+              echo 'export ENV_SUFFIX="$PRODUCTION_ENV_SUFFIX"' >> $BASH_ENV
+              echo 'export DATABASE_HOST="$PRODUCTION_DATABASE_HOST"' >> $BASH_ENV
+              echo 'export DATABASE_NAME="$PRODUCTION_DATABASE_NAME"' >> $BASH_ENV
+              echo 'export DATABASE_USER="$PRODUCTION_DATABASE_USER"' >> $BASH_ENV
+              echo 'export DATABASE_PASS="$PRODUCTION_DATABASE_PASS"' >> $BASH_ENV
+            fi
