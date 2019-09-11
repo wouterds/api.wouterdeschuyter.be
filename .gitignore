@@ -2,5 +2,6 @@
 .vscode/
 .docker/data/
 .env
+.build-*
 node_modules/
 dist/
