@@ -19,11 +19,16 @@ node_modules: package.json
 lint: node_modules
 	docker run --rm -v $(PWD):/code -w /code node:12-slim npm run lint
 
+qemu-arm-static:
+	docker run --rm --privileged multiarch/qemu-user-static:register --reset
+	curl -OL https://github.com/multiarch/qemu-user-static/releases/download/v4.1.0-1/qemu-arm-static
+	chmod +x qemu-arm-static
+
 .build-app: node_modules
 	docker run --rm -v $(PWD):/code -w /code node:12-slim npm run build
 	touch .build-app
 
-.build-node: .build-app $(DOCKERFILE_NODE)
+.build-node: qemu-arm-static .build-app $(DOCKERFILE_NODE)
 	docker build -f $(DOCKERFILE_NODE) -t $(TAG_NODE) .
 	touch .build-node
 
