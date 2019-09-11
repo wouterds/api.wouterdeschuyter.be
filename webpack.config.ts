@@ -12,10 +12,15 @@ const config: Configuration = {
   },
   externals: [nodeExternals()],
   resolve: {
-    extensions: ['.ts'],
+    extensions: ['.json', '.ts'],
   },
   module: {
     rules: [
+      {
+        test: /\.json$/,
+        exclude: /node_modules/,
+        use: [{ loader: 'json-loader' }],
+      },
       {
         test: /\.ts$/,
         exclude: /node_modules/,
