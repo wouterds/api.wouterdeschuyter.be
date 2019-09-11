@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "nodemon",
     "sync:models": "ts-node -r ./src/bootstrap ./src/scripts/sync-models",
-    "server:dev": "ts-node -r ./src/bootstrap ./src/http",
+    "server:dev": "ts-node -r ./src/bootstrap ./src/server",
     "lint": "standardx ./src/**/*.ts --verbose | snazzy",
     "lint:fix": "standardx ./src/**/*.ts --fix",
     "build": "webpack --config ./webpack.config.ts"

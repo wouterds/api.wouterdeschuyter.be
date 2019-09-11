@@ -4,7 +4,7 @@ import nodeExternals from 'webpack-node-externals';
 
 const config: webpack.Configuration = {
   mode: 'production',
-  entry: './src/http/index.ts',
+  entry: './src/server.ts',
   output: {
     filename: './server.js',
     path: path.resolve(__dirname, './dist')
