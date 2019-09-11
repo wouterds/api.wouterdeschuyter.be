@@ -47,17 +47,5 @@
     "plugins": [
       "@typescript-eslint/eslint-plugin"
     ]
-  },
-  "eslintConfig": {
-    "rules": {
-      "semi": [
-        "error",
-        "always"
-      ],
-      "comma-dangle": [
-        "error",
-        "always-multiline"
-      ]
-    }
   }
 }
