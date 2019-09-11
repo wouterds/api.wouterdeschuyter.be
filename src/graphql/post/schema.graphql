@@ -13,3 +13,14 @@ type Query {
   posts: [Post]
   post(id: String!): Post
 }
+
+type Mutation {
+  addPost(
+    userId: String
+    mediaId: String
+    title: String
+    slug: String
+    excerpt: String
+    body: String
+  ): Post
+}
