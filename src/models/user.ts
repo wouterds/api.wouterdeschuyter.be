@@ -9,8 +9,8 @@ export interface Definition {
   salt: string;
   password: string;
   createdAt: Date;
-  updatedAt: Date;
-  deletedAt: Date;
+  updatedAt: Date | null;
+  deletedAt: Date | null;
 }
 
 class User extends Model {}
