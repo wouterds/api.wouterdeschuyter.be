@@ -14,5 +14,8 @@ node_modules: package.json
 lint: node_modules
 	docker run --rm -v $(PWD):/code -w /code node:12-slim npm run lint
 
-build: node_modules
+.build-app: node_modules
 	docker run --rm -v $(PWD):/code -w /code node:12-slim npm run build
+	touch .build-app
+
+build: .build-app
