@@ -35,6 +35,7 @@
     "@typescript-eslint/eslint-plugin": "^2.2.0",
     "@typescript-eslint/parser": "^2.2.0",
     "babel-loader": "^8.0.6",
+    "graphql-tag": "^2.10.1",
     "json-loader": "^0.5.7",
     "nodemon": "^1.19.2",
     "prettier": "^1.18.2",
