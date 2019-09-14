@@ -7,8 +7,8 @@ if (process.env.NODE_ENV === 'production') {
   process.exit(1);
 }
 
-for (const file of readdirSync(resolve(__dirname, './../models'))) {
-  require(`models/${file}`);
+for (const file of readdirSync(resolve(__dirname, '../models'))) {
+  require(resolve(__dirname, `../models/${file}`));
 }
 
 (async () => {
