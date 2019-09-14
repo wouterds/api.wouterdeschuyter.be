@@ -3,6 +3,7 @@ const { readdirSync } = require('fs');
 module.exports = {
   presets: ['@babel/typescript'],
   plugins: [
+    'import-graphql',
     [
       'module-resolver',
       {
