@@ -24,4 +24,10 @@ const fetchAll = async (): Promise<Array<{ id: string; value: number }>> => {
   return sensors;
 };
 
-export default {};
+const sensors = () => {
+  return fetchAll();
+};
+
+export default {
+  sensors,
+};
