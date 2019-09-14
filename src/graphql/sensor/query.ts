@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const fetchData = async (): Promise<Array<{ id: string; value: number }>> => {
+const fetchAll = async (): Promise<Array<{ id: string; value: number }>> => {
   const data: any = {};
 
   try {
@@ -16,7 +16,12 @@ const fetchData = async (): Promise<Array<{ id: string; value: number }>> => {
     data['illuminance:full'] = response.illuminance.full;
   } catch {}
 
-  return data;
+  const sensors = [];
+  for (const [sensor, value] of Object.entries(data) as any) {
+    sensors.push({ id: sensor, value });
+  }
+
+  return sensors;
 };
 
 export default {};
