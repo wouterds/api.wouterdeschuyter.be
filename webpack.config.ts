@@ -36,6 +36,7 @@ const config: Configuration = {
           {
             loader: 'babel-loader',
             options: {
+              presets: ['@babel/typescript'],
               plugins: [
                 [
                   'module-resolver',
