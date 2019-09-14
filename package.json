@@ -18,6 +18,7 @@
     "axios": "^0.19.0",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
+    "graphql-tools": "^4.0.5",
     "mariadb": "^2.1.1",
     "merge-graphql-schemas": "^1.7.0",
     "sequelize": "^5.18.4",
