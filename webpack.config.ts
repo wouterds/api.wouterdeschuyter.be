@@ -3,7 +3,7 @@ import { Configuration, EnvironmentPlugin } from 'webpack';
 import nodeExternals from 'webpack-node-externals';
 import dotenv from 'dotenv';
 
-const extensions = ['.json', '.graphql', '.ts'];
+const extensions = ['.json', '.ts'];
 
 const config: Configuration = {
   mode: 'production',
@@ -22,11 +22,6 @@ const config: Configuration = {
         test: /\.json$/,
         exclude: /node_modules/,
         use: [{ loader: 'json-loader' }],
-      },
-      {
-        test: /\.graphql$/,
-        exclude: /node_modules/,
-        use: [{ loader: 'graphql-tag/loader' }],
       },
       {
         test: /\.ts$/,
