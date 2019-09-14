@@ -56,7 +56,6 @@ const config: Configuration = {
               ],
             },
           },
-          { loader: 'ts-loader' },
         ],
       },
     ],
