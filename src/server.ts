@@ -1,11 +1,9 @@
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
-import resolvers from 'graphql/resolvers';
-import typeDefs from 'graphql/schema';
+import schema from './graphql/schema';
 
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  schema,
   playground: process.env.NODE_ENV !== 'production',
 });
 
