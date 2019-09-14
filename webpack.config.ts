@@ -1,6 +1,5 @@
 import path from 'path';
 import { Configuration, EnvironmentPlugin } from 'webpack';
-import { readdirSync } from 'fs';
 import nodeExternals from 'webpack-node-externals';
 import dotenv from 'dotenv';
 
@@ -32,32 +31,7 @@ const config: Configuration = {
       {
         test: /\.ts$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/typescript'],
-              plugins: [
-                [
-                  'module-resolver',
-                  {
-                    root: ['./src'],
-                    alias: readdirSync('./src', { withFileTypes: true })
-                      .filter(dirent => dirent.isDirectory())
-                      .map(dirent => dirent.name)
-                      .reduce(
-                        (res, item) => ({
-                          ...res,
-                          [item]: `./src/${item}`,
-                        }),
-                        {}
-                      ),
-                  },
-                ],
-              ],
-            },
-          },
-        ],
+        use: [{ loader: 'babel-loader' }],
       },
     ],
   },
