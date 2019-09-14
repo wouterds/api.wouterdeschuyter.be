@@ -28,6 +28,20 @@ const sensors = () => {
   return fetchAll();
 };
 
+const sensor = async (_parent: any, args: { id: string }) => {
+  const { id } = args;
+
+  const sensors = await fetchAll();
+  const filtered = sensors.filter(sensor => sensor.id === id);
+
+  if (filtered.length > 0) {
+    return filtered[0];
+  }
+
+  return null;
+};
+
 export default {
   sensors,
+  sensor,
 };
