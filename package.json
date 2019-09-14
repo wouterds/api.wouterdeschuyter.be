@@ -20,8 +20,7 @@
     "express": "^4.17.1",
     "graphql-tools": "^4.0.5",
     "mariadb": "^2.1.1",
-    "sequelize": "^5.18.4",
-    "tsconfig-paths": "^3.8.0"
+    "sequelize": "^5.18.4"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
