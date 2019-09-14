@@ -1,11 +1,9 @@
 import path from 'path';
-import { Configuration, EnvironmentPlugin } from 'webpack';
+import { EnvironmentPlugin } from 'webpack';
 import nodeExternals from 'webpack-node-externals';
 import dotenv from 'dotenv';
 
-const extensions = ['.json', '.ts'];
-
-const config: Configuration = {
+export default {
   mode: 'production',
   target: 'node',
   externals: [nodeExternals()],
@@ -15,7 +13,7 @@ const config: Configuration = {
   output: {
     path: path.resolve(__dirname, './dist'),
   },
-  resolve: { extensions },
+  resolve: { extensions: ['.json', '.ts'] },
   module: {
     rules: [
       {
@@ -36,5 +34,3 @@ const config: Configuration = {
     ),
   ],
 };
-
-export default config;
