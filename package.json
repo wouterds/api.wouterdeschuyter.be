@@ -20,7 +20,6 @@
     "express": "^4.17.1",
     "graphql-tools": "^4.0.5",
     "mariadb": "^2.1.1",
-    "merge-graphql-schemas": "^1.7.0",
     "sequelize": "^5.18.4",
     "tsconfig-paths": "^3.8.0"
   },
