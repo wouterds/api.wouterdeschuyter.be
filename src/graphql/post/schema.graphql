@@ -1,12 +1,12 @@
 type Post {
-  id: String
-  userId: String
-  mediaId: String
-  title: String
-  slug: String
-  excerpt: String
-  body: String
-  views: Int
+  id: String!
+  userId: String!
+  mediaId: String!
+  title: String!
+  slug: String!
+  excerpt: String!
+  body: String!
+  views: Int!
 }
 
 type Query {
@@ -16,11 +16,12 @@ type Query {
 
 type Mutation {
   addPost(
-    userId: String
-    mediaId: String
-    title: String
-    slug: String
-    excerpt: String
-    body: String
+    userId: String!
+    mediaId: String!
+    title: String!
+    slug: String!
+    excerpt: String!
+    body: String!
+    views: Int
   ): Post
 }
