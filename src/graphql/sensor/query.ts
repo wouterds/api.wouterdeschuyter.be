@@ -28,7 +28,7 @@ const sensors = () => {
   return fetchAll();
 };
 
-const sensor = async (_parent: any, args: { id: string }) => {
+const sensor = async (_: any, args: { id: string }) => {
   const { id } = args;
 
   const sensors = await fetchAll();

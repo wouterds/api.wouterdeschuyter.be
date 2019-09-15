@@ -9,7 +9,7 @@ type Args = {
   body: string;
 };
 
-const addPost = (_parent: any, args: Args) => {
+const addPost = (_: any, args: Args) => {
   const { userId, mediaId, title, slug, excerpt, body } = args;
 
   return Post.create({ userId, mediaId, title, slug, excerpt, body });
