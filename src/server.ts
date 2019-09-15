@@ -1,6 +1,7 @@
 import Express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import bodyParser from 'body-parser';
+import jwt from 'express-jwt';
 import schema from './graphql/schema';
 
 // Server
@@ -12,6 +13,12 @@ const apollo = new ApolloServer({
 
 // Middleware
 express.use(bodyParser.json());
+express.use(
+  jwt({
+    secret: `${process.env.JWT_SECRET}`,
+    credentialsRequired: false,
+  })
+);
 apollo.applyMiddleware({ app: express });
 
 // Hello world
