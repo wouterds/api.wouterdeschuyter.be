@@ -2,6 +2,30 @@ import jsonwebtoken from 'jsonwebtoken';
 import User from 'models/user';
 import { generateSalt, hashPassword } from 'services/password';
 
+const signIn = async (
+  _: any,
+  args: {
+    email: string;
+    password: string;
+  }
+): Promise<string> => {
+  const { email, password } = args;
+
+  const user = await User.findOne({ where: { email } });
+
+  if (!user) {
+    throw new Error('user not found');
+  }
+
+  if (password !== hashPassword(password, user.salt)) {
+    throw new Error('password invalid');
+  }
+
+  return jsonwebtoken.sign({ id: user.id }, `${process.env.JWT_SECRET}`, {
+    expiresIn: '1m',
+  });
+};
+
 const signUp = async (
   _: any,
   args: {
@@ -33,5 +57,6 @@ const signUp = async (
 };
 
 export default {
+  signIn,
   signUp,
 };
