@@ -17,7 +17,7 @@ const signIn = async (
     throw new Error('user not found');
   }
 
-  if (password !== hashPassword(password, user.salt)) {
+  if (user.password !== hashPassword(password, user.salt)) {
     throw new Error('password invalid');
   }
 
