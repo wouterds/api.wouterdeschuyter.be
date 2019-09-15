@@ -1,5 +1,6 @@
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
+import bodyParser from 'body-parser';
 import schema from './graphql/schema';
 
 const server = new ApolloServer({
@@ -8,6 +9,8 @@ const server = new ApolloServer({
 });
 
 const app = express();
+
+app.use(bodyParser.json());
 server.applyMiddleware({ app });
 
 // Hello world on root
