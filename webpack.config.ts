@@ -7,7 +7,9 @@ export default {
   mode: 'production',
   target: 'node',
   externals: [nodeExternals()],
-  entry: './src/server.ts',
+  entry: {
+    server: './src/server.ts',
+  },
   output: { path: path.resolve(__dirname, './dist') },
   resolve: { extensions: ['.json', '.ts'] },
   module: {
