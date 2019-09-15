@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const fetchAll = async (): Promise<Array<{ id: string; value: number }>> => {
+const fetchAll = async () => {
   const data: any = {};
 
   try {
@@ -28,7 +28,7 @@ const sensors = () => {
   return fetchAll();
 };
 
-const sensor = async (_: any, args: { id: string }) => {
+const sensor = async (_parent: any, args: { id: string }) => {
   const { id } = args;
 
   const sensors = await fetchAll();

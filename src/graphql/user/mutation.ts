@@ -3,12 +3,12 @@ import User from 'models/user';
 import { generateSalt, hashPassword } from 'services/password';
 
 const signIn = async (
-  _: any,
+  _parent: any,
   args: {
     email: string;
     password: string;
   }
-): Promise<string> => {
+) => {
   const { email, password } = args;
 
   const user = await User.findOne({ where: { email } });
@@ -27,14 +27,14 @@ const signIn = async (
 };
 
 const signUp = async (
-  _: any,
+  _parent: any,
   args: {
     firstName: string;
     lastName: string;
     email: string;
     password: string;
   }
-): Promise<string> => {
+) => {
   const { firstName, lastName, email, password } = args;
 
   if ((await User.count({ where: { email } })) > 0) {
