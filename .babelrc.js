@@ -1,7 +1,17 @@
 const { readdirSync } = require('fs');
 
 module.exports = {
-  presets: ['@babel/env', '@babel/typescript'],
+  presets: [
+    [
+      '@babel/env',
+      {
+        targets: {
+          node: true,
+        },
+      },
+    ],
+    '@babel/typescript',
+  ],
   plugins: [
     'import-graphql',
     [
