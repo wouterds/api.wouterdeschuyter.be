@@ -22,7 +22,7 @@ const signIn = async (
   }
 
   return jsonwebtoken.sign({ id: user.id }, `${process.env.JWT_SECRET}`, {
-    expiresIn: '1m',
+    expiresIn: '30 days',
   });
 };
 
@@ -53,7 +53,7 @@ const signUp = async (
   });
 
   return jsonwebtoken.sign({ id }, `${process.env.JWT_SECRET}`, {
-    expiresIn: '1m',
+    expiresIn: '30 days',
   });
 };
 
