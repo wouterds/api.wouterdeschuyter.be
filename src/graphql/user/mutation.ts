@@ -49,6 +49,7 @@ const signUp = async (
     lastName,
     email,
     password: hashedPassword,
+    salt,
   });
 
   return jsonwebtoken.sign({ id }, `${process.env.JWT_SECRET}`, {
