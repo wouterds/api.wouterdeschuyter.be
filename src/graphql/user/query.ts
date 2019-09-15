@@ -8,7 +8,7 @@ const me = async (
   const { user } = context;
 
   if (!user) {
-    throw new Error('unauthorized');
+    throw new Error('not authenticated');
   }
 
   return User.findOne({ where: { id: user.id } });

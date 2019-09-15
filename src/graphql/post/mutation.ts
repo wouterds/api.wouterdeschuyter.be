@@ -15,7 +15,7 @@ const addPost = (
   const { user } = context;
 
   if (!user) {
-    throw new Error('unauthorized');
+    throw new Error('not authenticated');
   }
 
   const { userId, mediaId, title, slug, excerpt, body } = args;
