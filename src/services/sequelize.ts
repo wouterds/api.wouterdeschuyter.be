@@ -2,6 +2,9 @@ import { Sequelize } from 'sequelize';
 
 export default new Sequelize({
   dialect: 'mariadb',
+  dialectOptions: {
+    timezone: 'Etc/GMT0',
+  },
   host: process.env.DATABASE_HOST,
   database: process.env.DATABASE_NAME,
   username: process.env.DATABASE_USER,
