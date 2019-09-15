@@ -9,6 +9,9 @@ const express = Express();
 const apollo = new ApolloServer({
   schema,
   playground: process.env.NODE_ENV !== 'production',
+  context: ({ req }: { req: { user: { id: string } } }) => ({
+    user: req.user || null,
+  }),
 });
 
 // Middleware
