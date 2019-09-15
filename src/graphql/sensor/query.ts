@@ -5,7 +5,7 @@ const fetchAll = async (): Promise<Array<{ id: string; value: number }>> => {
 
   try {
     const { data: response } = await axios.get(
-      `${process.env.ENDPOINT_SENSORS}`
+      'https://sensors.wouterdeschuyter.be'
     );
 
     data.temperature = response.temperature;

@@ -8,7 +8,6 @@ jobs:
       - run:
           name: Environment variables
           command: |
-            echo 'export ENDPOINT_SENSORS="$ENDPOINT_SENSORS"' >> $BASH_ENV
             if [ "$CIRCLE_BRANCH" == "develop" ]; then
               echo 'export ENV_SUFFIX="$STAGING_ENV_SUFFIX"' >> $BASH_ENV
               echo 'export DATABASE_HOST="$STAGING_DATABASE_HOST"' >> $BASH_ENV
