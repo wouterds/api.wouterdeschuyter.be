@@ -19,12 +19,17 @@ express.use(
     credentialsRequired: false,
   })
 );
-apollo.applyMiddleware({ app: express });
 
-// Hello world
-express.get('/', (_req, res) =>
-  res.send(`Hello world! ${new Date().toISOString()}`)
-);
+// Healthcheck
+express.get('/ping', (_req, res) => {
+  const response = `pong ${new Date().toISOString()}`;
+
+  console.info(response);
+  res.send(response);
+});
+
+// Link Apollo with Express
+apollo.applyMiddleware({ app: express, path: '/' });
 
 // Start server on port 3000
 express.listen(3000, () => {
