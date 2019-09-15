@@ -15,6 +15,7 @@ jobs:
               echo 'export DATABASE_NAME="$STAGING_DATABASE_NAME"' >> $BASH_ENV
               echo 'export DATABASE_USER="$STAGING_DATABASE_USER"' >> $BASH_ENV
               echo 'export DATABASE_PASS="$STAGING_DATABASE_PASS"' >> $BASH_ENV
+              echo 'export JWT_SECRET="$STAGING_JWT_SECRET"' >> $BASH_ENV
             fi
             if [ "$CIRCLE_BRANCH" == "master" ]; then
               echo 'export ENV_SUFFIX="$PRODUCTION_ENV_SUFFIX"' >> $BASH_ENV
@@ -22,6 +23,7 @@ jobs:
               echo 'export DATABASE_NAME="$PRODUCTION_DATABASE_NAME"' >> $BASH_ENV
               echo 'export DATABASE_USER="$PRODUCTION_DATABASE_USER"' >> $BASH_ENV
               echo 'export DATABASE_PASS="$PRODUCTION_DATABASE_PASS"' >> $BASH_ENV
+              echo 'export JWT_SECRET="$PRODUCTION_JWT_SECRET"' >> $BASH_ENV
             fi
       - restore_cache:
           keys:
