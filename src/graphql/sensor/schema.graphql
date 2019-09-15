@@ -1,6 +1,6 @@
 type Sensor {
-  id: String!
-  value: Float!
+  id: String
+  value: Float
 }
 
 type Query {
