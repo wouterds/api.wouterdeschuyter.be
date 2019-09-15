@@ -17,6 +17,7 @@ User.init(
   },
   {
     sequelize,
+    tableName: 'users',
     timestamps: true,
     paranoid: true,
     indexes: [

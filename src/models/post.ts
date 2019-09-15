@@ -28,6 +28,7 @@ Post.init(
   },
   {
     sequelize,
+    tableName: 'posts',
     timestamps: true,
     paranoid: true,
     indexes: [

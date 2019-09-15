@@ -21,6 +21,7 @@ Media.init(
   },
   {
     sequelize,
+    tableName: 'media',
     timestamps: true,
     paranoid: true,
     indexes: [
