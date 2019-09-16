@@ -1,0 +1,8 @@
+type Media {
+  id: String
+  userId: String
+  name: String
+  url: String
+  contentType: String
+  size: Int
+}
