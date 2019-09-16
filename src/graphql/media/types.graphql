@@ -10,3 +10,7 @@ type Media {
 type Query {
   media(id: String!): Media
 }
+
+type Mutation {
+  addMediaFile(file: Upload!): Media
+}
