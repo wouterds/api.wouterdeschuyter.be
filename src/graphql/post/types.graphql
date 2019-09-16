@@ -3,7 +3,7 @@ type Post {
   userId: String
   mediaId: String
   title: String
-  slug: Strin
+  slug: String
   excerpt: String
   body: String
   views: Int
