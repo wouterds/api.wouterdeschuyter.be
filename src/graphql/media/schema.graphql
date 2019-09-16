@@ -6,3 +6,7 @@ type Media {
   contentType: String
   size: Int
 }
+
+type Query {
+  media(id: String!): Media
+}
