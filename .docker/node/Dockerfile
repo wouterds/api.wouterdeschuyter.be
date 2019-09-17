@@ -10,6 +10,7 @@ RUN npm install --production --ignore-scripts
 
 FROM arm32v6/node:12-alpine
 WORKDIR /code
+VOLUME /data
 
 COPY --from=0 /code /code
 

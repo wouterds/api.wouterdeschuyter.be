@@ -5,6 +5,8 @@ services:
     image: docker.wouterdeschuyter.be/api-wouterdeschuyter-staging-node
     restart: unless-stopped
     mem_limit: 64mb
+    volumes:
+      - ./data:/data
     environment:
       - VIRTUAL_HOST=api-staging.wouterdeschuyter.be
       - VIRTUAL_PORT=3000

@@ -17,6 +17,7 @@ services:
     image: node:12-slim
     volumes:
       - ../:/code
+      - ./data/node:/data
     working_dir: /code
     command: bash -c "npm install --loglevel verbose && npm run sync:models && npm run dev"
     ports:
