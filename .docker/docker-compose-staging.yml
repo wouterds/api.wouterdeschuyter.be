@@ -9,7 +9,7 @@ services:
       - ./data:/data
     environment:
       - VIRTUAL_HOST=api-staging.wouterdeschuyter.be
-      - VIRTUAL_PORT=3000
+      - VIRTUAL_PORT=3001
       - LETSENCRYPT_HOST=api-staging.wouterdeschuyter.be
       - LETSENCRYPT_EMAIL=wouter.de.schuyter@gmail.com
     networks:

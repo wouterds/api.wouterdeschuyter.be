@@ -21,6 +21,6 @@ services:
     working_dir: /code
     command: bash -c "npm install --loglevel verbose && npm run sync:models && npm run dev"
     ports:
-      - 3000:3000
+      - 3001:3001
     depends_on:
       - mariadb

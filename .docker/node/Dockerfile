@@ -14,7 +14,7 @@ VOLUME /data
 
 COPY --from=0 /code /code
 
-EXPOSE 3000
+EXPOSE 3001
 
 HEALTHCHECK CMD node ./healthcheck
 

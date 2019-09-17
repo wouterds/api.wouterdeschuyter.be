@@ -34,9 +34,9 @@ express.get('/ping', (_req, res) => {
 // Link Apollo with Express
 apollo.applyMiddleware({ app: express, path: '/' });
 
-// Start server on port 3000
-express.listen(3000, () => {
+// Start server on port 3001
+express.listen(3001, () => {
   console.log(
-    `> Application is running on http://localhost:3000${apollo.graphqlPath} 🚀`
+    `> Application is running on http://localhost:3001${apollo.graphqlPath} 🚀`
   );
 });
