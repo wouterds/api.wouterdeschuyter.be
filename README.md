@@ -2,6 +2,7 @@
 
 ![circleci](https://circleci.com/gh/wouterds/api.wouterdeschuyter.be.svg?style=shield)
 ![tag](https://img.shields.io/github/tag/wouterds/api.wouterdeschuyter.be.svg)
+![dependencies](https://img.shields.io/david/wouterds/api.wouterdeschuyter.be)
 ![last commit](https://img.shields.io/github/last-commit/wouterds/api.wouterdeschuyter.be.svg)
 ![commit activity](https://img.shields.io/github/commit-activity/m/wouterds/api.wouterdeschuyter.be)
 ![code size](https://img.shields.io/github/languages/code-size/wouterds/api.wouterdeschuyter.be.svg)
