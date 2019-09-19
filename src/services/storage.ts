@@ -1,11 +1,11 @@
-import { resolve } from 'path';
+import { resolve, join } from 'path';
 import { createWriteStream, unlinkSync, existsSync } from 'fs';
 
 export const storeFile = async (
-  name: string,
+  location: string,
   rs: NodeJS.ReadableStream
 ): Promise<string | null> => {
-  const path = resolve(`/data/${name}`);
+  const path = join(resolve('/data'), location);
   const ws = createWriteStream(path);
 
   return new Promise(resolve => {
