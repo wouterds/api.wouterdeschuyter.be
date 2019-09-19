@@ -15,6 +15,7 @@ Media.init(
       allowNull: false,
     },
     name: { type: DataTypes.STRING(64), allowNull: false },
+    md5: { type: DataTypes.STRING(32), allowNull: true },
     url: { type: DataTypes.STRING(64), allowNull: true },
     contentType: { type: DataTypes.STRING(32), allowNull: true },
     size: { type: DataTypes.INTEGER, allowNull: true },
@@ -27,6 +28,9 @@ Media.init(
     indexes: [
       {
         fields: ['userId'],
+      },
+      {
+        fields: ['md5'],
       },
     ],
   }
