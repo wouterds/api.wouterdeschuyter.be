@@ -25,7 +25,8 @@
     "graphql-upload": "^8.0.7",
     "jsonwebtoken": "^8.5.1",
     "mariadb": "^2.1.1",
-    "sequelize": "^5.18.4"
+    "sequelize": "^5.18.4",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
@@ -38,6 +39,7 @@
     "@types/graphql-upload": "^8.0.3",
     "@types/jsonwebtoken": "^8.3.3",
     "@types/node": "^12.7.4",
+    "@types/uuid": "^3.4.5",
     "@types/webpack": "^4.39.1",
     "@types/webpack-node-externals": "^1.6.3",
     "@typescript-eslint/eslint-plugin": "^2.3.0",
