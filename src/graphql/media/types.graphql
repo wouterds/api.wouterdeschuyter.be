@@ -2,9 +2,11 @@ type Media {
   id: String
   userId: String
   name: String
-  url: String
-  contentType: String
+  mediaType: String
   size: Int
+  md5: String
+  path: String
+  url: String
 }
 
 type Query {
