@@ -24,7 +24,10 @@ export const storeFile = async (
 
     rs.on('error', abort);
     ws.on('error', abort);
-    ws.on('finish', () => resolve(path));
+    ws.on('finish', () => {
+      ws.end();
+      resolve(path);
+    });
     rs.pipe(ws);
   });
 };
