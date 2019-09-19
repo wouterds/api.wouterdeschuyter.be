@@ -6,6 +6,7 @@ module.exports = {
     'plugin:prettier/recommended'
   ],
   rules: {
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-inferrable-types": "off"
   }
 };
