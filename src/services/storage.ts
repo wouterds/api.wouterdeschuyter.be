@@ -9,22 +9,16 @@ export const storeFile = async (
   const ws = createWriteStream(path);
 
   return new Promise(resolve => {
-    rs.on('error', () => {
+    const abort = () => {
       if (existsSync(path)) {
         unlinkSync(path);
       }
 
       resolve(null);
-    });
+    };
 
-    ws.on('error', () => {
-      if (existsSync(path)) {
-        unlinkSync(path);
-      }
-
-      resolve(null);
-    });
-
+    rs.on('error', abort);
+    ws.on('error', abort);
     ws.on('finish', () => resolve(path));
     rs.pipe(ws);
   });
