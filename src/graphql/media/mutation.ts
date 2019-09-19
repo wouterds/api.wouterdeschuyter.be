@@ -1,8 +1,8 @@
-import path from 'path';
+import { extname } from 'path';
 import hasha from 'hasha';
 import uuid from 'uuid';
 import Media from 'models/media';
-import { storeFile } from 'services/storage';
+import { storeFile, fileSize } from 'services/storage';
 
 const addMediaFile = async (
   _parent: any,
@@ -26,7 +26,7 @@ const addMediaFile = async (
 
   const stream = createReadStream();
   const md5 = await hasha.fromStream(stream, { algorithm: 'md5' });
-  const extension = path.extname(filename);
+  const extension = extname(filename);
 
   const searchMedia = await Media.findOne({ where: { md5 } });
   if (searchMedia) {
@@ -35,11 +35,17 @@ const addMediaFile = async (
 
   const id = uuid();
   const location = `/media/${id}${extension}`;
-  const storagePath = await storeFile(location, stream);
+  const path = await storeFile(location, stream);
+  const size = fileSize(location);
 
-  console.log({ filename, mimetype, id, md5, extension, storagePath });
-
-  return null;
+  return Media.create({
+    id,
+    name: filename,
+    mediaType: mimetype,
+    size,
+    md5,
+    path,
+  });
 };
 
 export default {
