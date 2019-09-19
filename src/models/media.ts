@@ -32,6 +32,9 @@ Media.init(
       {
         fields: ['md5'],
       },
+      {
+        fields: ['url'],
+      },
     ],
   }
 );
