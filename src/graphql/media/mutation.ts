@@ -1,3 +1,6 @@
+import path from 'path';
+import hasha from 'hasha';
+import uuid from 'uuid';
 import { storeFile } from 'services/storage';
 
 const addMediaFile = async (
@@ -20,9 +23,15 @@ const addMediaFile = async (
   const { file } = args;
   const { filename, mimetype, createReadStream } = await file;
 
-  const path = await storeFile(filename, createReadStream());
+  const stream = createReadStream();
+  const md5 = await hasha.fromStream(stream, { algorithm: 'md5' });
+  const extension = path.extname(filename);
 
-  console.log({ filename, mimetype, path });
+  const id = uuid();
+  const location = `/media/${id}${extension}`;
+  const storagePath = await storeFile(location, stream);
+
+  console.log({ filename, mimetype, id, md5, extension, storagePath });
 
   return null;
 };
