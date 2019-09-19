@@ -16,6 +16,7 @@ Media.init(
     },
     name: { type: DataTypes.STRING(64), allowNull: false },
     md5: { type: DataTypes.STRING(32), allowNull: true },
+    path: { type: DataTypes.STRING(64), allowNull: true },
     url: { type: DataTypes.STRING(64), allowNull: true },
     mediaType: { type: DataTypes.STRING(16), allowNull: true },
     size: { type: DataTypes.INTEGER, allowNull: true },
