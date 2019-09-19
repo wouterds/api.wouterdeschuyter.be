@@ -1,5 +1,11 @@
 import { resolve, join } from 'path';
-import { createWriteStream, unlinkSync, existsSync, mkdirSync } from 'fs';
+import {
+  createWriteStream,
+  unlinkSync,
+  existsSync,
+  mkdirSync,
+  statSync,
+} from 'fs';
 
 export const storeFile = async (
   location: string,
@@ -30,4 +36,10 @@ export const storeFile = async (
     });
     rs.pipe(ws);
   });
+};
+
+export const fileSize = (location: string): number => {
+  const path = join(resolve('/data'), location);
+
+  return statSync(path).size;
 };
