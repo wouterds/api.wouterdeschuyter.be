@@ -16,6 +16,24 @@ A GraphQL API that powers my personal website, and maybe a bit more in the futur
 cp .env.example .env
 ```
 
+### VSCode
+
+#### Plugins
+
+- https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+
+#### Workspace settings
+
+```javascript
+{
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    { "language": "javascript", "autoFix": true },
+    { "language": "typescript", "autoFix": true },
+  ],
+}
+```
+
 ## Running
 
 ```bash
