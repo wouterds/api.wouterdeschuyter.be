@@ -1,5 +1,5 @@
 import { resolve, join } from 'path';
-import { createWriteStream, unlinkSync, existsSync } from 'fs';
+import { createWriteStream, unlinkSync, existsSync, mkdirSync } from 'fs';
 
 export const storeFile = async (
   location: string,
@@ -7,6 +7,11 @@ export const storeFile = async (
 ): Promise<string | null> => {
   const path = join(resolve('/data'), location);
   const ws = createWriteStream(path);
+
+  // Create parent directory
+  const parts = path.split('/');
+  parts.pop();
+  mkdirSync(parts.join('/'), { recursive: true });
 
   return new Promise(resolve => {
     const abort = () => {
