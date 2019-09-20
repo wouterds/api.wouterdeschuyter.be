@@ -9,7 +9,7 @@ import {
 
 export const storeFile = async (
   location: string,
-  rs: NodeJS.ReadableStream
+  rs: NodeJS.ReadableStream,
 ): Promise<string | null> => {
   const path = join(resolve('/data'), location);
   const ws = createWriteStream(path);

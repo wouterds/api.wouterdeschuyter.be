@@ -7,7 +7,7 @@ const signIn = async (
   args: {
     email: string;
     password: string;
-  }
+  },
 ) => {
   const { email, password } = args;
 
@@ -33,7 +33,7 @@ const signUp = async (
     lastName: string;
     email: string;
     password: string;
-  }
+  },
 ) => {
   const { firstName, lastName, email, password } = args;
 

@@ -37,7 +37,7 @@ MediaAsset.init(
         fields: ['url'],
       },
     ],
-  }
+  },
 );
 
 export default MediaAsset;

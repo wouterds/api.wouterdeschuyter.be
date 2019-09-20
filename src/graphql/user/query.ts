@@ -3,7 +3,7 @@ import User from 'models/user';
 const me = async (
   _parent: any,
   _args: any,
-  context: { user?: { id: string } }
+  context: { user?: { id: string } },
 ) => {
   const { user } = context;
 

@@ -5,7 +5,7 @@ const fetchAll = async () => {
 
   try {
     const { data: response } = await axios.get(
-      'https://sensors.wouterdeschuyter.be'
+      'https://sensors.wouterdeschuyter.be',
     );
 
     data.temperature = response.temperature;

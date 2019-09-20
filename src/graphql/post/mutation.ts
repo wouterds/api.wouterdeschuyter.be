@@ -9,7 +9,7 @@ const addPost = (
     excerpt: string;
     body: string;
   },
-  context: { user?: { id: string } }
+  context: { user?: { id: string } },
 ) => {
   const { user } = context;
 

@@ -39,7 +39,7 @@ Post.init(
         fields: ['mediaId'],
       },
     ],
-  }
+  },
 );
 
 export default Post;

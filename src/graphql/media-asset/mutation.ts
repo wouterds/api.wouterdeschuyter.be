@@ -13,7 +13,7 @@ const addMediaAssetFile = async (
       createReadStream: () => NodeJS.ReadableStream;
     }>;
   },
-  context: { user?: { id: string } }
+  context: { user?: { id: string } },
 ) => {
   const { user } = context;
 

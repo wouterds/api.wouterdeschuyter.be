@@ -20,7 +20,7 @@ express.use(
   jwt({
     secret: `${process.env.JWT_SECRET}`,
     credentialsRequired: false,
-  })
+  }),
 );
 
 // Healthcheck
@@ -37,6 +37,6 @@ apollo.applyMiddleware({ app: express, path: '/' });
 // Start server on port 3001
 express.listen(3001, () => {
   console.log(
-    `> Application is running on http://localhost:3001${apollo.graphqlPath} 🚀`
+    `> Application is running on http://localhost:3001${apollo.graphqlPath} 🚀`,
   );
 });

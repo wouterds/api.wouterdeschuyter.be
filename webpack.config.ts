@@ -29,7 +29,7 @@ export default {
   },
   plugins: [
     new EnvironmentPlugin(
-      Object.keys(dotenv.config({ path: '.env.example' }).parsed || {})
+      Object.keys(dotenv.config({ path: '.env.example' }).parsed || {}),
     ),
   ],
 };

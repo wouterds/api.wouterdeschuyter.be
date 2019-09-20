@@ -9,7 +9,7 @@ export const generateSalt = (salt?: string): string => {
 export const hashPassword = (
   password: string,
   salt: string,
-  cycles: number = 10
+  cycles: number = 10,
 ): string => {
   for (let i = 0; i < cycles; i++) {
     password = hasha(`${salt}:${password}`, { algorithm: 'sha256' });
