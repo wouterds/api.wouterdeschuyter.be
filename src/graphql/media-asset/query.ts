@@ -1,5 +1,9 @@
 import MediaAsset from 'models/media-asset';
 
+const mediaAssets = () => {
+  return MediaAsset.findAll();
+};
+
 const mediaAsset = (_parent: any, args: { id: string }) => {
   const { id } = args;
 
@@ -7,5 +11,6 @@ const mediaAsset = (_parent: any, args: { id: string }) => {
 };
 
 export default {
+  mediaAssets,
   mediaAsset,
 };
