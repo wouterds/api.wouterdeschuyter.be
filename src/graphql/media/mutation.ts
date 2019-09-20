@@ -24,8 +24,7 @@ const addMediaFile = async (
   const { file } = args;
   const { filename, mimetype, createReadStream } = await file;
 
-  const stream = createReadStream();
-  const md5 = await hasha.fromStream(stream, { algorithm: 'md5' });
+  const md5 = await hasha.fromStream(createReadStream(), { algorithm: 'md5' });
   const extension = extname(filename);
 
   const searchMedia = await Media.findOne({ where: { md5 } });
@@ -35,7 +34,7 @@ const addMediaFile = async (
 
   const id = uuid();
   const location = `/media/${id}${extension}`;
-  const path = await storeFile(location, stream);
+  const path = await storeFile(location, createReadStream());
   const size = fileSize(location);
 
   return Media.create({
