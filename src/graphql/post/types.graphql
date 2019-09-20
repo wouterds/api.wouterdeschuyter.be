@@ -16,7 +16,6 @@ type Query {
 
 type Mutation {
   addPost(
-    userId: String!
     mediaId: String!
     title: String!
     slug: String!
