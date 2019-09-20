@@ -1,8 +1,8 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from 'services/sequelize';
 
-class Media extends Model {}
-Media.init(
+class MediaAsset extends Model {}
+MediaAsset.init(
   {
     id: {
       type: DataTypes.UUID,
@@ -23,7 +23,7 @@ Media.init(
   },
   {
     sequelize,
-    tableName: 'media',
+    tableName: 'media-assets',
     timestamps: true,
     paranoid: true,
     indexes: [
@@ -40,4 +40,4 @@ Media.init(
   }
 );
 
-export default Media;
+export default MediaAsset;

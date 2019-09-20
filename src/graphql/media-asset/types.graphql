@@ -1,4 +1,4 @@
-type Media {
+type MediaAsset {
   id: String
   userId: String
   name: String
@@ -10,9 +10,9 @@ type Media {
 }
 
 type Query {
-  media(id: String!): Media
+  mediaAsset(id: String!): MediaAsset
 }
 
 type Mutation {
-  addMediaFile(file: Upload!): Media
+  addMediaAssetFile(file: Upload!): MediaAsset
 }
