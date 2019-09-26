@@ -18,13 +18,7 @@ User.init(
     status: {
       type: DataTypes.VIRTUAL,
       get(this: any) {
-        const activatedAt = this.getDataValue('activatedAt');
-
-        if (!activatedAt) {
-          return 'NOT_ACTIVATED';
-        }
-
-        if (new Date(activatedAt) > new Date()) {
+        if (!this.getDataValue('activatedAt')) {
           return 'NOT_ACTIVATED';
         }
 
