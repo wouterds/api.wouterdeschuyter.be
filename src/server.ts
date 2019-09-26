@@ -15,17 +15,20 @@ const apollo = new ApolloServer({
       return { user: null };
     }
 
-    const { id, status } = await User.findOne({ where: { id: req.user.id } });
+    const user = await User.findOne({ where: { id: req.user.id } });
 
-    if (!id) {
+    if (!user) {
       return { user: null };
     }
 
-    if (status !== 'ACTIVE') {
+    if (user.status !== 'ACTIVE') {
       return { user: null };
     }
 
-    return { user: { id } };
+    user.lastOnlineAt = new Date();
+    user.save();
+
+    return { user: { id: user.id } };
   },
 });
 
