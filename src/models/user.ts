@@ -15,6 +15,7 @@ User.init(
     salt: { type: DataTypes.STRING(64), allowNull: false },
     password: { type: DataTypes.STRING(64), allowNull: false },
     activatedAt: { type: DataTypes.DATE, allowNull: true },
+    lastOnlineAt: { type: DataTypes.DATE, allowNull: true },
     status: {
       type: DataTypes.VIRTUAL,
       get(this: any) {
