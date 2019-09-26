@@ -5,6 +5,7 @@ type User {
   email: String
   status: String
   createdAt: String
+  lastOnlineAt: String
 }
 
 type Query {
