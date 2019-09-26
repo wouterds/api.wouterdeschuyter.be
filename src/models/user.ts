@@ -22,6 +22,10 @@ User.init(
           return 'NOT_ACTIVATED';
         }
 
+        if (this.getDataValue('deletedAt')) {
+          return 'DELETED';
+        }
+
         return 'ACTIVE';
       },
     },
