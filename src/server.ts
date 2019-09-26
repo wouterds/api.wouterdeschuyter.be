@@ -2,6 +2,7 @@ import Express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import bodyParser from 'body-parser';
 import jwt from 'express-jwt';
+import User from 'models/user';
 import schema from './graphql/schema';
 
 // Server
@@ -9,9 +10,23 @@ const express = Express();
 const apollo = new ApolloServer({
   schema,
   playground: process.env.NODE_ENV !== 'production',
-  context: ({ req }: { req: { user: { id: string } } }) => ({
-    user: req.user || null,
-  }),
+  context: async ({ req }: { req: { user: { id: string } } }) => {
+    if (!req.user) {
+      return { user: null };
+    }
+
+    const { id, status } = await User.findOne({ where: { id: req.user.id } });
+
+    if (!id) {
+      return { user: null };
+    }
+
+    if (status !== 'ACTIVE') {
+      return { user: null };
+    }
+
+    return { user: { id } };
+  },
 });
 
 // Middleware
