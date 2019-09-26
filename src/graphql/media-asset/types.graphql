@@ -7,6 +7,7 @@ type MediaAsset {
   md5: String
   path: String
   url: String
+  createdAt: String
 }
 
 type Query {
