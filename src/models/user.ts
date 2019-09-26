@@ -14,6 +14,7 @@ User.init(
     email: { type: DataTypes.STRING(64), allowNull: false },
     salt: { type: DataTypes.STRING(64), allowNull: false },
     password: { type: DataTypes.STRING(64), allowNull: false },
+    activatedAt: { type: DataTypes.DATE, allowNull: true },
   },
   {
     sequelize,
