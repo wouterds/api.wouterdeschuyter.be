@@ -15,6 +15,22 @@ User.init(
     salt: { type: DataTypes.STRING(64), allowNull: false },
     password: { type: DataTypes.STRING(64), allowNull: false },
     activatedAt: { type: DataTypes.DATE, allowNull: true },
+    status: {
+      type: DataTypes.VIRTUAL,
+      get(this: any) {
+        const activatedAt = this.getDataValue('activatedAt');
+
+        if (!activatedAt) {
+          return 'INACTIVE';
+        }
+
+        if (new Date(activatedAt) < new Date()) {
+          return 'ACTIVE';
+        }
+
+        return 'INACTIVE';
+      },
+    },
   },
   {
     sequelize,
