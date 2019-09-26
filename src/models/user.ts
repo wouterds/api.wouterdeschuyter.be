@@ -21,14 +21,14 @@ User.init(
         const activatedAt = this.getDataValue('activatedAt');
 
         if (!activatedAt) {
-          return 'INACTIVE';
+          return 'NOT_ACTIVATED';
         }
 
-        if (new Date(activatedAt) < new Date()) {
-          return 'ACTIVE';
+        if (new Date(activatedAt) > new Date()) {
+          return 'NOT_ACTIVATED';
         }
 
-        return 'INACTIVE';
+        return 'ACTIVE';
       },
     },
   },
