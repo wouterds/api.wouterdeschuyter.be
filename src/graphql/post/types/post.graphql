@@ -1,6 +1,6 @@
 type Post {
   id: String
-  userId: String
+  user: User
   mediaId: String
   title: String
   slug: String
