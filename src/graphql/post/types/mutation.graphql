@@ -1,0 +1,10 @@
+type Mutation {
+  addPost(
+    mediaId: String!
+    title: String!
+    slug: String!
+    excerpt: String!
+    body: String!
+    views: Int
+  ): Post
+}

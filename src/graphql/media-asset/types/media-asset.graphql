@@ -9,12 +9,3 @@ type MediaAsset {
   url: String
   createdAt: String
 }
-
-type Query {
-  mediaAssets: [MediaAsset]
-  mediaAsset(id: String!): MediaAsset
-}
-
-type Mutation {
-  addMediaAssetFile(file: Upload!): MediaAsset
-}

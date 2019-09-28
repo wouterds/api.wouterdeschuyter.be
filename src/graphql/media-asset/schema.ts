@@ -1,10 +1,12 @@
 import { makeExecutableSchema } from 'graphql-tools';
-import typeDefs from './types.graphql';
+import Upload from '../upload/types/upload.graphql';
+import uploadResolvers from '../upload/resolvers';
+import MediaAsset from './types/media-asset.graphql';
+import Query from './types/query.graphql';
+import Mutation from './types/mutation.graphql';
 import resolvers from './resolvers';
-import uploadTypeDefs from 'graphql/upload/types.graphql';
-import uploadResolvers from 'graphql/upload/resolvers';
 
 export default makeExecutableSchema({
-  typeDefs: [typeDefs, uploadTypeDefs],
-  resolvers: [resolvers, uploadResolvers],
+  typeDefs: [Upload, MediaAsset, Query, Mutation],
+  resolvers: [uploadResolvers, resolvers],
 });

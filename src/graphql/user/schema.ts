@@ -1,8 +1,10 @@
 import { makeExecutableSchema } from 'graphql-tools';
-import typeDefs from './types.graphql';
+import User from './types/user.graphql';
+import Query from './types/query.graphql';
+import Mutation from './types/mutation.graphql';
 import resolvers from './resolvers';
 
 export default makeExecutableSchema({
-  typeDefs,
+  typeDefs: [User, Query, Mutation],
   resolvers,
 });

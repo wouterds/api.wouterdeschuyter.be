@@ -1,0 +1,9 @@
+type Mutation {
+  signIn(email: String!, password: String!): String
+  signUp(
+    firstName: String!
+    lastName: String!
+    email: String!
+    password: String!
+  ): String
+}

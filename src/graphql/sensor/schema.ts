@@ -1,8 +1,9 @@
 import { makeExecutableSchema } from 'graphql-tools';
-import typeDefs from './types.graphql';
+import Sensor from './types/sensor.graphql';
+import Query from './types/query.graphql';
 import resolvers from './resolvers';
 
 export default makeExecutableSchema({
-  typeDefs,
+  typeDefs: [Sensor, Query],
   resolvers,
 });

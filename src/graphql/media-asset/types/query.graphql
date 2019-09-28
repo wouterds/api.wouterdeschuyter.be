@@ -1,0 +1,4 @@
+type Query {
+  mediaAssets: [MediaAsset]
+  mediaAsset(id: String!): MediaAsset
+}
