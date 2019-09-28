@@ -19,12 +19,12 @@ User.init(
     status: {
       type: DataTypes.VIRTUAL,
       get(this: any) {
-        if (!this.getDataValue('activatedAt')) {
-          return 'NOT_ACTIVATED';
-        }
-
         if (this.getDataValue('deletedAt')) {
           return 'DELETED';
+        }
+
+        if (!this.getDataValue('activatedAt')) {
+          return 'NOT_ACTIVATED';
         }
 
         return 'ACTIVE';
