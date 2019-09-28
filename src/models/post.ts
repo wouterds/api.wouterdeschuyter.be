@@ -1,5 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from 'services/sequelize';
+import User from './user';
 
 class Post extends Model {}
 Post.init(
@@ -41,5 +42,7 @@ Post.init(
     ],
   },
 );
+
+Post.belongsTo(User, { as: 'user' });
 
 export default Post;
