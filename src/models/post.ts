@@ -26,6 +26,20 @@ Post.init(
     body: { type: DataTypes.TEXT, allowNull: false },
     publishedAt: { type: DataTypes.DATE, allowNull: true },
     views: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
+    status: {
+      type: DataTypes.VIRTUAL,
+      get(this: any) {
+        if (this.getDataValue('deletedAt')) {
+          return 'DELETED';
+        }
+
+        if (!this.getDataValue('publishedAt')) {
+          return 'DRAFT';
+        }
+
+        return 'PUBLISHED';
+      },
+    },
   },
   {
     sequelize,
