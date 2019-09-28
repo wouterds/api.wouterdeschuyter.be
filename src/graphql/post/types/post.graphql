@@ -7,6 +7,7 @@ type Post {
   excerpt: String
   body: String
   views: Int
+  status: String
   createdAt: String
   publishedAt: String
 }
