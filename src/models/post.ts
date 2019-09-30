@@ -15,7 +15,7 @@ Post.init(
       defaultValue: DataTypes.UUIDV4,
       allowNull: false,
     },
-    mediaId: {
+    mediaAssetId: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       allowNull: false,
@@ -51,7 +51,7 @@ Post.init(
         fields: ['userId'],
       },
       {
-        fields: ['mediaId'],
+        fields: ['mediaAssetId'],
       },
     ],
   },

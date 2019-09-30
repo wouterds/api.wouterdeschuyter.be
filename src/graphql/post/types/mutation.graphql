@@ -1,6 +1,6 @@
 type Mutation {
   addPost(
-    mediaId: String!
+    mediaAssetId: String!
     title: String!
     slug: String!
     excerpt: String!

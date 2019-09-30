@@ -3,7 +3,7 @@ import Post from 'models/post';
 const addPost = (
   _parent: any,
   args: {
-    mediaId: string;
+    mediaAssetId: string;
     title: string;
     slug: string;
     excerpt: string;
@@ -17,9 +17,16 @@ const addPost = (
     throw new Error('not authenticated');
   }
 
-  const { mediaId, title, slug, excerpt, body } = args;
+  const { mediaAssetId, title, slug, excerpt, body } = args;
 
-  return Post.create({ userId: user.id, mediaId, title, slug, excerpt, body });
+  return Post.create({
+    userId: user.id,
+    mediaAssetId,
+    title,
+    slug,
+    excerpt,
+    body,
+  });
 };
 
 export default {
