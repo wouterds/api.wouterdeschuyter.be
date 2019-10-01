@@ -1,13 +1,10 @@
 type MediaAsset {
   id: String
-  userId: String
   name: String
   mediaType: String
   size: Int
   width: Int
   height: Int
-  md5: String
-  path: String
   url: String
   createdAt: String
 }
