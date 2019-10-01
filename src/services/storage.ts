@@ -1,5 +1,6 @@
 import { resolve, join } from 'path';
 import {
+  createReadStream,
   createWriteStream,
   unlinkSync,
   existsSync,
@@ -36,6 +37,12 @@ export const saveFile = async (
     });
     rs.pipe(ws);
   });
+};
+
+export const getFile = (location: string): NodeJS.ReadableStream => {
+  const path = join(resolve('/data'), location);
+
+  return createReadStream(path);
 };
 
 export const getFileSize = (location: string): number => {
