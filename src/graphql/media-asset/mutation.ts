@@ -33,9 +33,9 @@ const addMediaAssetFile = async (
   }
 
   const id = uuid();
-  const location = `/media-assets/${id}${extension}`;
-  const path = await saveFile(location, createReadStream());
-  const size = getFileSize(location);
+  const path = `/media-assets/${id}${extension}`;
+  await saveFile(path, createReadStream());
+  const size = getFileSize(path);
 
   return MediaAsset.create({
     id,
