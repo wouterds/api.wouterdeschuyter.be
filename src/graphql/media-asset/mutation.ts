@@ -1,4 +1,5 @@
 import { extname } from 'path';
+import { imageSize } from 'image-size';
 import hasha from 'hasha';
 import uuid from 'uuid';
 import MediaAsset from 'models/media-asset';
@@ -39,14 +40,29 @@ const addMediaAssetFile = async (
 
   const id = uuid();
   const path = `/media-assets/${id}${extension}`;
-  await saveFile(path, createReadStream());
+  const fsPath = await saveFile(path, createReadStream());
+
+  if (!fsPath) {
+    throw new Error('could not save file');
+  }
+
   const size = getFileSize(path);
+  let width = null,
+    height = null;
+
+  if (mimetype.indexOf('image/') > -1) {
+    const dimensions = imageSize(fsPath);
+    width = dimensions.width;
+    height = dimensions.height;
+  }
 
   return MediaAsset.create({
     id,
     name: filename,
     mediaType: mimetype,
     size,
+    width,
+    height,
     md5,
     path,
   });
