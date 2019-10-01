@@ -7,7 +7,7 @@ import {
   statSync,
 } from 'fs';
 
-export const storeFile = async (
+export const saveFile = async (
   location: string,
   rs: NodeJS.ReadableStream,
 ): Promise<string | null> => {

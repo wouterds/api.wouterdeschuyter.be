@@ -2,7 +2,7 @@ import { extname } from 'path';
 import hasha from 'hasha';
 import uuid from 'uuid';
 import MediaAsset from 'models/media-asset';
-import { storeFile, fileSize } from 'services/storage';
+import { saveFile, fileSize } from 'services/storage';
 
 const addMediaAssetFile = async (
   _parent: any,
@@ -34,7 +34,7 @@ const addMediaAssetFile = async (
 
   const id = uuid();
   const location = `/media-assets/${id}${extension}`;
-  const path = await storeFile(location, createReadStream());
+  const path = await saveFile(location, createReadStream());
   const size = fileSize(location);
 
   return MediaAsset.create({
