@@ -1,6 +1,7 @@
 type MediaAsset {
   id: String
   name: String
+  fileName: String
   mediaType: String
   size: Int
   width: Int
