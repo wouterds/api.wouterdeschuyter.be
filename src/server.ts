@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import jwt from 'express-jwt';
 import User from 'models/user';
 import schema from './graphql/schema';
-import handlers from './http/handlers';
+import requestHandlers from './request-handlers';
 
 // Server
 const express = Express();
@@ -43,8 +43,8 @@ express.use(
 );
 
 // Healthcheck
-express.get('/ping', handlers.ping);
-express.get('/media-asset/:id.:ext', handlers.mediaAsset);
+express.get('/ping', requestHandlers.ping);
+express.get('/media-asset/:id.:ext', requestHandlers.mediaAsset);
 
 // Link Apollo with Express
 apollo.applyMiddleware({ app: express, path: '/' });
