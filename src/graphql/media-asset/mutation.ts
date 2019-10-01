@@ -29,6 +29,11 @@ const addMediaAssetFile = async (
 
   const searchMedia = await MediaAsset.findOne({ where: { md5 } });
   if (searchMedia) {
+    if (searchMedia.deletedAt) {
+      searchMedia.deletedAt = null;
+      searchMedia.save();
+    }
+
     return searchMedia;
   }
 
