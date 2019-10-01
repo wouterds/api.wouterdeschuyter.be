@@ -24,7 +24,6 @@ Post.init(
     slug: { type: DataTypes.STRING(191), allowNull: false },
     excerpt: { type: DataTypes.TEXT, allowNull: false },
     body: { type: DataTypes.TEXT, allowNull: false },
-    publishedAt: { type: DataTypes.DATE, allowNull: true },
     views: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
     status: {
       type: DataTypes.VIRTUAL,
@@ -40,6 +39,7 @@ Post.init(
         return 'PUBLISHED';
       },
     },
+    publishedAt: { type: DataTypes.DATE, allowNull: true },
   },
   {
     sequelize,

@@ -14,8 +14,6 @@ User.init(
     email: { type: DataTypes.STRING(64), allowNull: false },
     salt: { type: DataTypes.STRING(64), allowNull: false },
     password: { type: DataTypes.STRING(64), allowNull: false },
-    activatedAt: { type: DataTypes.DATE, allowNull: true },
-    lastOnlineAt: { type: DataTypes.DATE, allowNull: true },
     status: {
       type: DataTypes.VIRTUAL,
       get(this: any) {
@@ -30,6 +28,8 @@ User.init(
         return 'ACTIVE';
       },
     },
+    lastOnlineAt: { type: DataTypes.DATE, allowNull: true },
+    activatedAt: { type: DataTypes.DATE, allowNull: true },
   },
   {
     sequelize,
