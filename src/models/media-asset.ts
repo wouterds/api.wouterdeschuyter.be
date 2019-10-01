@@ -1,3 +1,4 @@
+import { basename } from 'path';
 import { DataTypes, Model } from 'sequelize';
 import sequelize from 'services/sequelize';
 
@@ -22,6 +23,18 @@ MediaAsset.init(
     md5: { type: DataTypes.STRING(32), allowNull: true },
     path: { type: DataTypes.STRING(64), allowNull: true },
     url: { type: DataTypes.STRING(64), allowNull: true },
+    fileName: {
+      type: DataTypes.VIRTUAL,
+      get(this: any) {
+        const path = this.getDataValue('path');
+
+        if (!path) {
+          return null;
+        }
+
+        return basename(path);
+      },
+    },
   },
   {
     sequelize,
