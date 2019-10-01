@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import jwt from 'express-jwt';
 import User from 'models/user';
 import schema from './graphql/schema';
+import handlers from './http/handlers';
 
 // Server
 const express = Express();
@@ -42,12 +43,7 @@ express.use(
 );
 
 // Healthcheck
-express.get('/ping', (_req, res) => {
-  const response = `pong ${new Date().toISOString()}`;
-
-  console.info(response);
-  res.send(response);
-});
+express.get('/ping', handlers.ping);
 
 // Link Apollo with Express
 apollo.applyMiddleware({ app: express, path: '/' });
