@@ -38,7 +38,7 @@ export const saveFile = async (
   });
 };
 
-export const fileSize = (location: string): number => {
+export const getFileSize = (location: string): number => {
   const path = join(resolve('/data'), location);
 
   return statSync(path).size;
