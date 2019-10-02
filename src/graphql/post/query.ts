@@ -1,11 +1,14 @@
 import { Op } from 'sequelize';
 import Post from 'models/post';
 
-const posts = () => {
+const posts = (_parent: any, args: { limit?: number }) => {
+  const { limit } = args;
+
   return Post.findAll({
     include: ['user'],
     order: [['publishedAt', 'desc']],
     where: { publishedAt: { [Op.ne]: null } },
+    limit,
   });
 };
 
