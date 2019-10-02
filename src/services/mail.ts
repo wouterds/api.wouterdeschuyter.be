@@ -26,10 +26,12 @@ export const sendMail = async (
       Name: sender.name,
       Email: sender.email,
     },
-    To: {
-      Name: receiver.name,
-      Email: receiver.email,
-    },
+    To: [
+      {
+        Name: receiver.name,
+        Email: receiver.email,
+      },
+    ],
     Subject: subject,
     TextPart: text,
   };
