@@ -1,7 +1,11 @@
+import { Op } from 'sequelize';
 import Post from 'models/post';
 
 const posts = () => {
-  return Post.findAll({ include: ['user'] });
+  return Post.findAll({
+    include: ['user'],
+    where: { publishedAt: { [Op.ne]: null } },
+  });
 };
 
 const post = (_parent: any, args: { id: string }) => {
