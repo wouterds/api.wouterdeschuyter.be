@@ -4,6 +4,7 @@ import Post from 'models/post';
 const posts = () => {
   return Post.findAll({
     include: ['user'],
+    order: [['publishedAt', 'desc']],
     where: { publishedAt: { [Op.ne]: null } },
   });
 };
