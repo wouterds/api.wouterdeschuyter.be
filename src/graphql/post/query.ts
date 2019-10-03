@@ -16,13 +16,19 @@ const posts = (_parent: any, args: { limit?: number; offset?: number }) => {
 const post = (_parent: any, args: { id: string }) => {
   const { id } = args;
 
-  return Post.findOne({ where: { id }, include: ['user'] });
+  return Post.findOne({
+    where: { id, publishedAt: { [Op.ne]: null } },
+    include: ['user'],
+  });
 };
 
 const postBySlug = (_parent: any, args: { slug: string }) => {
   const { slug } = args;
 
-  return Post.findOne({ where: { slug }, include: ['user'] });
+  return Post.findOne({
+    where: { slug, publishedAt: { [Op.ne]: null } },
+    include: ['user'],
+  });
 };
 
 const postCount = () => {
