@@ -19,6 +19,12 @@ const post = (_parent: any, args: { id: string }) => {
   return Post.findOne({ where: { id }, include: ['user'] });
 };
 
+const postBySlug = (_parent: any, args: { slug: string }) => {
+  const { slug } = args;
+
+  return Post.findOne({ where: { slug }, include: ['user'] });
+};
+
 const postCount = () => {
   return Post.count({
     where: { publishedAt: { [Op.ne]: null } },
@@ -27,6 +33,7 @@ const postCount = () => {
 
 export default {
   post,
+  postBySlug,
   posts,
   postCount,
 };
