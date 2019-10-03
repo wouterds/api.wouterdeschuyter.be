@@ -18,7 +18,14 @@ const post = (_parent: any, args: { id: string }) => {
   return Post.findOne({ where: { id }, include: ['user'] });
 };
 
+const postCount = () => {
+  return Post.count({
+    where: { publishedAt: { [Op.ne]: null } },
+  });
+};
+
 export default {
   post,
   posts,
+  postCount,
 };
