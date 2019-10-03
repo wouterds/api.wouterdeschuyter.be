@@ -7,22 +7,24 @@ const postCount = () => {
   });
 };
 
-const post = (_parent: any, args: { id: string }) => {
-  const { id } = args;
+const post = (_parent: any, args: { id?: string; slug?: string }) => {
+  const { id, slug } = args;
 
-  return Post.findOne({
-    where: { id, publishedAt: { [Op.ne]: null } },
-    include: ['user'],
-  });
-};
+  if (!id && !slug) {
+    return null;
+  }
 
-const postBySlug = (_parent: any, args: { slug: string }) => {
-  const { slug } = args;
+  const where: any = { publishedAt: { [Op.ne]: null } };
 
-  return Post.findOne({
-    where: { slug, publishedAt: { [Op.ne]: null } },
-    include: ['user'],
-  });
+  if (id) {
+    where.id = id;
+  }
+
+  if (slug) {
+    where.slug = slug;
+  }
+
+  return Post.findOne({ where, include: ['user'] });
 };
 
 const posts = (_parent: any, args: { limit?: number; offset?: number }) => {
@@ -40,6 +42,5 @@ const posts = (_parent: any, args: { limit?: number; offset?: number }) => {
 export default {
   postCount,
   post,
-  postBySlug,
   posts,
 };
