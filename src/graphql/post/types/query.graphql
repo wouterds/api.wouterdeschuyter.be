@@ -1,5 +1,5 @@
 type Query {
-  posts(limit: Int): [Post]
+  posts(limit: Int, offset: Int): [Post]
   post(id: String!): Post
   postCount: Int
 }
