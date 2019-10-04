@@ -9,4 +9,7 @@ export default new Sequelize({
   database: process.env.DATABASE_NAME,
   username: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASS,
+  define: {
+    charset: 'utf8mb4',
+  },
 });
