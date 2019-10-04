@@ -1,6 +1,7 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from 'services/sequelize';
 import User from './user';
+import MediaAsset from './media-asset';
 
 class Post extends Model {}
 Post.init(
@@ -58,5 +59,6 @@ Post.init(
 );
 
 Post.belongsTo(User, { as: 'user' });
+Post.hasOne(MediaAsset, { as: 'media' });
 
 export default Post;
