@@ -56,6 +56,6 @@ MediaAsset.init(
   },
 );
 
-MediaAsset.belongsTo(User, { as: 'user' });
+MediaAsset.belongsTo(User, { as: 'user', constraints: false });
 
 export default MediaAsset;

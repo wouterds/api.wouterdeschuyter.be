@@ -58,7 +58,7 @@ Post.init(
   },
 );
 
-Post.belongsTo(User, { as: 'user' });
-Post.hasOne(MediaAsset, { as: 'media' });
+Post.belongsTo(User, { as: 'user', constraints: false });
+Post.hasOne(MediaAsset, { as: 'media', constraints: false });
 
 export default Post;
