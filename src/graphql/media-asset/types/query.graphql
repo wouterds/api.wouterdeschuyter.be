@@ -1,4 +1,4 @@
 type Query {
-  mediaAssets: [MediaAsset]
+  mediaAssets(ids: [String]): [MediaAsset]
   mediaAsset(id: String!): MediaAsset
 }

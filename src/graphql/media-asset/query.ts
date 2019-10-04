@@ -1,6 +1,12 @@
 import MediaAsset from 'models/media-asset';
 
-const mediaAssets = () => {
+const mediaAssets = (_parent: any, args: { ids?: string[] }) => {
+  const { ids } = args;
+
+  if (ids) {
+    return MediaAsset.findAll({ where: { id: ids } });
+  }
+
   return MediaAsset.findAll();
 };
 
