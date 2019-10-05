@@ -43,7 +43,7 @@
     "@types/express-jwt": "0.0.42",
     "@types/graphql-upload": "^8.0.3",
     "@types/jsonwebtoken": "^8.3.4",
-    "@types/node": "^12.7.4",
+    "@types/node": "^12.7.11",
     "@types/statuses": "^1.5.0",
     "@types/uuid": "^3.4.5",
     "@types/webpack": "^4.39.1",
