@@ -46,7 +46,7 @@
     "@types/node": "^12.7.11",
     "@types/statuses": "^1.5.0",
     "@types/uuid": "^3.4.5",
-    "@types/webpack": "^4.39.1",
+    "@types/webpack": "^4.39.2",
     "@types/webpack-node-externals": "^1.6.3",
     "@typescript-eslint/eslint-plugin": "^2.3.0",
     "@typescript-eslint/parser": "^2.3.0",
