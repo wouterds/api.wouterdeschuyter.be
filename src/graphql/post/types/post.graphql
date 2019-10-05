@@ -1,7 +1,7 @@
 type Post {
   id: String
   user: User
-  mediaAssetId: String
+  mediaAsset: MediaAsset
   title: String
   slug: String
   excerpt: String

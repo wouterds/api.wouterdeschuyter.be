@@ -24,14 +24,14 @@ const post = (_parent: any, args: { id?: string; slug?: string }) => {
     where.slug = slug;
   }
 
-  return Post.findOne({ where, include: ['user'] });
+  return Post.findOne({ where, include: ['user', 'mediaAsset'] });
 };
 
 const posts = (_parent: any, args: { limit?: number; offset?: number }) => {
   const { limit, offset } = args;
 
   return Post.findAll({
-    include: ['user'],
+    include: ['user', 'mediaAsset'],
     order: [['publishedAt', 'desc']],
     where: { publishedAt: { [Op.ne]: null } },
     limit,
