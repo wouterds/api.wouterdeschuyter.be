@@ -17,10 +17,10 @@ clean:
 	-rm -rf qemu-arm-static
 
 node_modules: package.json
-	docker run --rm -v $(PWD):/code -w /code node:12-slim npm install --loglevel verbose
+	docker run --rm -v $(PWD):/code -w /code node:12-slim yarn install --loglevel verbose
 
 lint: node_modules
-	docker run --rm -v $(PWD):/code -w /code node:12-slim npm run lint
+	docker run --rm -v $(PWD):/code -w /code node:12-slim yarn run lint
 
 qemu-arm-static:
 	docker run --rm --privileged multiarch/qemu-user-static:register --reset
@@ -28,7 +28,7 @@ qemu-arm-static:
 	chmod +x qemu-arm-static
 
 .build-app: node_modules
-	docker run --rm -v $(PWD):/code -w /code -e ENV_SUFFIX -e DATABASE_HOST -e DATABASE_NAME -e DATABASE_USER -e DATABASE_PASS -e JWT_SECRET -e MAILJET_API_KEY -e MAILJET_API_SECRET node:12-slim npm run build
+	docker run --rm -v $(PWD):/code -w /code -e ENV_SUFFIX -e DATABASE_HOST -e DATABASE_NAME -e DATABASE_USER -e DATABASE_PASS -e JWT_SECRET -e MAILJET_API_KEY -e MAILJET_API_SECRET node:12-slim yarn run build
 	touch .build-app
 
 .build-node: qemu-arm-static .build-app $(DOCKERFILE_NODE)

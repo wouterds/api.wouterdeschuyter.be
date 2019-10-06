@@ -6,7 +6,7 @@ COPY ./package*.json ./
 COPY ./dist/server.js /code/server.js
 COPY ./dist/healthcheck.js /code/healthcheck.js
 
-RUN npm install --production --ignore-scripts
+RUN yarn install --production --ignore-scripts
 
 FROM arm32v6/node:12-alpine
 WORKDIR /code
