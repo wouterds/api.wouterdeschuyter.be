@@ -1,6 +1,6 @@
 # api.wouterdeschuyter.be
 
-![circleci](https://circleci.com/gh/wouterds/api.wouterdeschuyter.be.svg?style=shield)
+![circleci](https://circleci.com/gh/wouterds/api.wouterdeschuyter.be/tree/develop.svg?style=shield)
 ![tag](https://img.shields.io/github/tag/wouterds/api.wouterdeschuyter.be.svg)
 ![dependencies](https://img.shields.io/david/wouterds/api.wouterdeschuyter.be)
 ![last commit](https://img.shields.io/github/last-commit/wouterds/api.wouterdeschuyter.be.svg)
