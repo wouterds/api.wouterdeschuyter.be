@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  node:
+    image: docker.wouterdeschuyter.be/api-wouterdeschuyter-node
+    restart: unless-stopped
+    mem_limit: 64mb
+    volumes:
+      - ./data:/data
+    environment:
+      - VIRTUAL_HOST=api.wouterdeschuyter.be
+      - VIRTUAL_PORT=3001
+      - LETSENCRYPT_HOST=api.wouterdeschuyter.be
+      - LETSENCRYPT_EMAIL=wouter.de.schuyter@gmail.com
+    networks:
+      - default
+      - webproxy
+      - mariadb
+    logging:
+      options:
+        max-size: 2m
+        max-file: '5'
+
+networks:
+  webproxy:
+    external: true
+  mariadb:
+    external: true
