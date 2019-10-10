@@ -29,6 +29,20 @@ const addPost = (
   });
 };
 
+const increaseViewCount = async (_parent: any, args: { id: string }) => {
+  const { id } = args;
+  const post = await Post.findOne({ where: { id } });
+
+  if (!post) {
+    return false;
+  }
+
+  post.views++;
+  post.save();
+  return true;
+};
+
 export default {
   addPost,
+  increaseViewCount,
 };

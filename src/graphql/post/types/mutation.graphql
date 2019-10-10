@@ -7,4 +7,5 @@ type Mutation {
     body: String!
     views: Int
   ): Post
+  increaseViewCount(id: String!): Boolean
 }
