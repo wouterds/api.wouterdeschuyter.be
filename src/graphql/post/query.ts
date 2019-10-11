@@ -7,14 +7,19 @@ const postCount = () => {
   });
 };
 
-const post = (_parent: any, args: { id?: string; slug?: string }) => {
+const post = (
+  _parent: any,
+  args: { id?: string; slug?: string },
+  context: { user?: { id: string } },
+) => {
   const { id, slug } = args;
+  const { user } = context;
 
   if (!id && !slug) {
     return null;
   }
 
-  const where: any = { publishedAt: { [Op.ne]: null } };
+  const where: any = user ? {} : { publishedAt: { [Op.ne]: null } };
 
   if (id) {
     where.id = id;
