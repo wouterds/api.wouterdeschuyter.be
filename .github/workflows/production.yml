@@ -1,0 +1,44 @@
+name: 'production'
+on:
+  push:
+    tags:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      ENV: production
+      DATABASE_HOST: ${{ secrets.PRODUCTION_DATABASE_HOST }}
+      DATABASE_NAME: ${{ secrets.PRODUCTION_DATABASE_NAME }}
+      DATABASE_USER: ${{ secrets.PRODUCTION_DATABASE_USER }}
+      DATABASE_PASS: ${{ secrets.PRODUCTION_DATABASE_PASS }}
+      JWT_SECRET: ${{ secrets.PRODUCTION_JWT_SECRET }}
+      MAILJET_API_KEY: ${{ secrets.PRODUCTION_MAILJET_API_KEY }}
+      MAILJET_API_SECRET: ${{ secrets.PRODUCTION_MAILJET_API_SECRET }}
+      DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+      DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+      DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+      DOCKER_REGISTRY_USER: ${{ secrets.DOCKER_REGISTRY_USER }}
+      DOCKER_REGISTRY_PASS: ${{ secrets.DOCKER_REGISTRY_PASS }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Dependencies
+        run: make node_modules
+      - name: Linting
+        run: make lint
+      - name: Build
+        run: make build
+      - name: Push images
+        run: make push
+      - name: 'SSH: configure agent'
+        uses: webfactory/ssh-agent@v0.1.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: 'SSH: trust host'
+        run: for ip in $(dig @1.1.1.1 ${DEPLOY_HOST} +short); do ssh-keyscan ${DEPLOY_HOST},$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts
+      - name: Deploy
+        run: make deploy
