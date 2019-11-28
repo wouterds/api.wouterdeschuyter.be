@@ -31,22 +31,22 @@ qemu-arm-static:
 	docker run --rm -v $(PWD):/code -w /code -e ENV_SUFFIX -e DATABASE_HOST -e DATABASE_NAME -e DATABASE_USER -e DATABASE_PASS -e JWT_SECRET -e MAILJET_API_KEY -e MAILJET_API_SECRET node:12-slim yarn build
 	touch .build-app
 
-.build-node: qemu-arm-static .build-app $(DOCKERFILE_NODE)
-	docker build -f $(DOCKERFILE_NODE) -t $(TAG_NODE) .
+.build-node: qemu-arm-static .build-app ${DOCKERFILE_NODE}
+	docker build -f ${DOCKERFILE_NODE} -t ${TAG_NODE}:latest${ENV_SUFFIX} .
 	touch .build-node
 
 build: .build-node
-	docker tag $(TAG_NODE) $(TAG_NODE):$(VERSION)
+	docker tag ${TAG_NODE}:latest${ENV_SUFFIX} ${TAG_NODE}:${VERSION}${ENV_SUFFIX}
 
 docker-login:
 	docker login docker.wouterdeschuyter.be -u ${DOCKER_REGISTRY_USER} -p ${DOCKER_REGISTRY_PASS}
 
-push: build
-	docker push $(TAG_NODE)
-	docker push $(TAG_NODE):$(VERSION)
+push: build docker-login
+	docker push ${TAG_NODE}:latest${ENV_SUFFIX}
+	docker push ${TAG_NODE}:${VERSION}${ENV_SUFFIX}
 
 deploy:
-	ssh ${DEPLOY_USER}@${DEPLOY_SERVER} "mkdir -p ${DEPLOY_LOCATION}${ENV_SUFFIX}"
-	scp ${DOCKER_COMPOSE} ${DEPLOY_USER}@${DEPLOY_SERVER}:${DEPLOY_LOCATION}${ENV_SUFFIX}/docker-compose.yml
-	ssh ${DEPLOY_USER}@${DEPLOY_SERVER} "cd ${DEPLOY_LOCATION}${ENV_SUFFIX}; docker-compose pull"
-	ssh ${DEPLOY_USER}@${DEPLOY_SERVER} "cd ${DEPLOY_LOCATION}${ENV_SUFFIX}; docker-compose up -d"
+	ssh ${DEPLOY_USER}@${DEPLOY_HOST} "mkdir -p ${DEPLOY_PATH}${ENV_SUFFIX}"
+	scp ${DOCKER_COMPOSE} ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}${ENV_SUFFIX}/docker-compose.yml
+	ssh ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_PATH}${ENV_SUFFIX}; docker-compose pull"
+	ssh ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_PATH}${ENV_SUFFIX}; docker-compose up -d"
