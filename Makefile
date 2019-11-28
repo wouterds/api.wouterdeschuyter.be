@@ -38,6 +38,9 @@ qemu-arm-static:
 build: .build-node
 	docker tag $(TAG_NODE) $(TAG_NODE):$(VERSION)
 
+docker-login:
+	docker login docker.wouterdeschuyter.be -u ${DOCKER_REGISTRY_USER} -p ${DOCKER_REGISTRY_PASS}
+
 push: build
 	docker push $(TAG_NODE)
 	docker push $(TAG_NODE):$(VERSION)
