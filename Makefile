@@ -1,11 +1,11 @@
 PWD = $(shell pwd)
 VERSION = $(shell cat package.json | grep "\"version\"" | sed -e 's/^.*: "\(.*\)".*/\1/')
-PROJECT = $(shell cat package.json | grep "\"name\"" | sed -e 's/^.*: "\(.*\)".*/\1/')
 
 DOCKER_COMPOSE = ./.docker/docker-compose${ENV_SUFFIX}.yml
 DOCKERFILE_NODE = ./.docker/node/Dockerfile
 
-TAG_NODE = $(DOCKER_REGISTRY_HOST)/$(PROJECT)${ENV_SUFFIX}-node
+TAG_PREFIX = docker.wouterdeschuyter.be/api.wouterdeschuyter.be
+TAG_NODE = ${TAG_PREFIX}/node
 
 all: build
 
