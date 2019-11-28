@@ -2,7 +2,7 @@ version: '2'
 
 services:
   node:
-    image: docker.wouterdeschuyter.be/api-wouterdeschuyter-node
+    image: docker.wouterdeschuyter.be/api.wouterdeschuyter.be/node:latest
     restart: unless-stopped
     mem_limit: 64mb
     volumes:
