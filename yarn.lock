@@ -969,7 +969,7 @@
   resolved "https://registry.yarnpkg.com/@types/node-mailjet/-/node-mailjet-3.3.0.tgz#1c5d8a962b5458ed290bbd71fdb036a81e58380a"
   integrity sha512-OZt6GdXewESdvtqxvPxVrBCPJgsBeyptjQGwNr9x3xFm6dJvwwNqYqnCNw0T3En1nKFBLD9HSScvnmgzMKXUVg==
 
-"@types/node@*", "@types/node@^12.7.11", "@types/node@^12.7.5":
+"@types/node@*", "@types/node@^12.12.11", "@types/node@^12.7.11":
   version "12.12.14"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.14.tgz#1c1d6e3c75dba466e0326948d56e8bd72a1903d2"
   integrity sha512-u/SJDyXwuihpwjXy7hOOghagLEV1KdAST6syfnOk6QZAMzZuWZqXy5aYYZbh8Jdpd4escVFP0MvftHNDb9pruA==
@@ -4453,16 +4453,16 @@ map-visit@^1.0.0:
     object-visit "^1.0.0"
 
 mariadb@^2.1.1:
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/mariadb/-/mariadb-2.1.3.tgz#3572a658c9c604c0ccf2dc48916a6b3cdfefe5c4"
-  integrity sha512-LbqU0ASDE6/L6BG8gs7sIoDvjlSRPEztEJPQbvd9g6F7Rd5Y8fG6awBKgkVoce08E/Oo0ycezzw242GE4m/TdQ==
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/mariadb/-/mariadb-2.1.4.tgz#95c149c4c34b8fe33b3b1c1923f9a6928441d940"
+  integrity sha512-CMLbIKZCzxero94luo25IKpboEuUCvA2g2+NMUBdRYpBCDmnsiQ8kwdgqvuVQ13a4/ZKr87BC1nbe4b3UZXXmQ==
   dependencies:
     "@types/geojson" "^7946.0.7"
-    "@types/node" "^12.7.5"
+    "@types/node" "^12.12.11"
     denque "^1.4.1"
     iconv-lite "^0.5.0"
     long "^4.0.0"
-    moment-timezone "^0.5.26"
+    moment-timezone "^0.5.27"
 
 md5.js@^1.3.4:
   version "1.3.5"
@@ -4647,7 +4647,7 @@ mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
-moment-timezone@^0.5.21, moment-timezone@^0.5.26:
+moment-timezone@^0.5.21, moment-timezone@^0.5.27:
   version "0.5.27"
   resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.27.tgz#73adec8139b6fe30452e78f210f27b1f346b8877"
   integrity sha512-EIKQs7h5sAsjhPCqN6ggx6cEbs94GK050254TIJySD1bzoM5JTYDwAU1IoVOeTOL6Gm27kYJ51/uuvq1kIlrbw==
