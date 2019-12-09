@@ -6,6 +6,7 @@ COPY ./package.json ./
 COPY ./yarn.lock ./
 COPY ./dist/server.js /code/server.js
 COPY ./dist/healthcheck.js /code/healthcheck.js
+COPY ./.docker/node/crons ./crons
 
 RUN yarn install --production
 
@@ -14,9 +15,10 @@ WORKDIR /code
 VOLUME /data
 
 COPY --from=0 /code /code
+RUN crontab ./crons
 
 EXPOSE 3001
 
 HEALTHCHECK CMD node ./healthcheck
 
-CMD ["npm", "start"]
+CMD ["./entrypoint.sh"]
