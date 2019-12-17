@@ -15,6 +15,7 @@ FROM arm32v6/node:12-alpine
 WORKDIR /code
 VOLUME /data
 
+COPY ./qemu-arm-static /usr/bin/qemu-arm-static
 COPY --from=0 /code /code
 RUN crontab ./crons
 
