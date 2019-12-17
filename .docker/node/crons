@@ -6,4 +6,4 @@
 # |  |  |  |  |
 # *  *  *  *  *  command to be executed
 
-* * * * * node ./sensor-sample.js
+* * * * * cd /code && node ./sensor-sample.js
