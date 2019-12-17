@@ -1,4 +1,4 @@
 type Query {
   sensors(live: Boolean): [Sensor]
-  sensor(id: String!, live: Boolean): Sensor
+  sensor(type: String!, live: Boolean): Sensor
 }

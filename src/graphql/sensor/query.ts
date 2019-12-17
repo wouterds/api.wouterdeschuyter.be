@@ -15,8 +15,8 @@ const fetchAll = async () => {
   } catch {}
 
   const sensors = [];
-  for (const [sensor, value] of Object.entries(data) as any) {
-    sensors.push({ id: sensor, value });
+  for (const [type, value] of Object.entries(data) as any) {
+    sensors.push({ type, value });
   }
 
   return sensors;
@@ -32,12 +32,12 @@ const sensors = (_parent: any, args: { live?: boolean }) => {
   return {};
 };
 
-const sensor = async (_parent: any, args: { id: string; live?: boolean }) => {
-  const { id, live = false } = args;
+const sensor = async (_parent: any, args: { type: string; live?: boolean }) => {
+  const { type, live = false } = args;
 
   if (live) {
     const sensors = await fetchAll();
-    const filtered = sensors.filter(sensor => sensor.id === id);
+    const filtered = sensors.filter(sensor => sensor.type === type);
 
     if (filtered.length > 0) {
       return filtered[0];

@@ -9,7 +9,7 @@ Sensor.init(
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    sensor: {
+    type: {
       type: DataTypes.ENUM(
         'illuminance:full',
         'illuminance:visible',
@@ -29,7 +29,7 @@ Sensor.init(
     paranoid: true,
     indexes: [
       {
-        fields: ['sensor'],
+        fields: ['type'],
       },
     ],
   },
