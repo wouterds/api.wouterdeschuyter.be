@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Sensor from 'models/sensor';
 
 const fetchAll = async () => {
   const data: any = {};
@@ -22,14 +23,19 @@ const fetchAll = async () => {
   return sensors;
 };
 
-const sensors = (_parent: any, args: { live?: boolean }) => {
+const sensors = async (_parent: any, args: { live?: boolean }) => {
   const { live = false } = args;
 
   if (live) {
     return fetchAll();
   }
 
-  return {};
+  const sensorCount = await Sensor.count({ distinct: true, col: 'type' });
+
+  return Sensor.findAll({
+    order: [['createdAt', 'desc']],
+    limit: sensorCount,
+  });
 };
 
 const sensor = async (_parent: any, args: { type: string; live?: boolean }) => {
@@ -46,7 +52,10 @@ const sensor = async (_parent: any, args: { type: string; live?: boolean }) => {
     return null;
   }
 
-  return null;
+  return Sensor.findOne({
+    where: { type },
+    order: [['createdAt', 'desc']],
+  });
 };
 
 export default {
