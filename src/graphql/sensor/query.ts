@@ -4,9 +4,7 @@ const fetchAll = async () => {
   const data: any = {};
 
   try {
-    const { data: response } = await axios.get(
-      'https://sensors.wouterdeschuyter.be',
-    );
+    const { data: response } = await axios.get(`${process.env.SENSORS_API}`);
 
     data.temperature = response.temperature;
     data.humidity = response.humidity;
