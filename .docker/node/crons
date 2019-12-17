@@ -6,4 +6,4 @@
 # |  |  |  |  |
 # *  *  *  *  *  command to be executed
 
-* * * * * node ./sensor-sample
+* * * * * node ./sensor-sample.js
