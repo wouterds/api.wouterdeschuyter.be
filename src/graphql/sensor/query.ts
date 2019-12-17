@@ -22,18 +22,28 @@ const fetchAll = async () => {
   return sensors;
 };
 
-const sensors = () => {
-  return fetchAll();
+const sensors = (_parent: any, args: { live?: boolean }) => {
+  const { live = false } = args;
+
+  if (live) {
+    return fetchAll();
+  }
+
+  return {};
 };
 
-const sensor = async (_parent: any, args: { id: string }) => {
-  const { id } = args;
+const sensor = async (_parent: any, args: { id: string; live?: boolean }) => {
+  const { id, live = false } = args;
 
-  const sensors = await fetchAll();
-  const filtered = sensors.filter(sensor => sensor.id === id);
+  if (live) {
+    const sensors = await fetchAll();
+    const filtered = sensors.filter(sensor => sensor.id === id);
 
-  if (filtered.length > 0) {
-    return filtered[0];
+    if (filtered.length > 0) {
+      return filtered[0];
+    }
+
+    return null;
   }
 
   return null;
