@@ -10,6 +10,7 @@ export default {
   entry: {
     server: './src/server.ts',
     healthcheck: './src/scripts/healthcheck.ts',
+    'sensor-sample': './src/scripts/sensor-sample.ts',
   },
   output: { path: path.resolve(__dirname, './dist') },
   resolve: { extensions: ['.json', '.ts'] },
