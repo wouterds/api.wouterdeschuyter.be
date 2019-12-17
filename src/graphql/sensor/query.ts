@@ -24,7 +24,7 @@ const fetchAll = async () => {
 };
 
 const sensors = async (_parent: any, args: { live?: boolean }) => {
-  const { live = false } = args;
+  const { live = true } = args;
 
   if (live) {
     return fetchAll();
@@ -39,7 +39,7 @@ const sensors = async (_parent: any, args: { live?: boolean }) => {
 };
 
 const sensor = async (_parent: any, args: { type: string; live?: boolean }) => {
-  const { type, live = false } = args;
+  const { type, live = true } = args;
 
   if (live) {
     const sensors = await fetchAll();
