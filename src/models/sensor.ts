@@ -26,7 +26,6 @@ Sensor.init(
     sequelize,
     tableName: 'sensors',
     timestamps: true,
-    paranoid: true,
     indexes: [
       {
         fields: ['type'],
