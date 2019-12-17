@@ -1,5 +1,6 @@
 import axios from 'axios';
 import mean from 'lodash/mean';
+import Sensor from 'models/sensor';
 
 (async () => {
   const { data: sample1 } = await axios
@@ -19,23 +20,21 @@ import mean from 'lodash/mean';
     .catch(() => process.exit(1));
 
   const data = {
-    illuminance: {
-      full: mean([
-        sample1.illuminance.full,
-        sample2.illuminance.full,
-        sample3.illuminance.full,
-      ]),
-      visible: mean([
-        sample1.illuminance.visible,
-        sample2.illuminance.visible,
-        sample3.illuminance.visible,
-      ]),
-      ir: mean([
-        sample1.illuminance.ir,
-        sample2.illuminance.ir,
-        sample3.illuminance.ir,
-      ]),
-    },
+    'illuminance:full': mean([
+      sample1.illuminance.full,
+      sample2.illuminance.full,
+      sample3.illuminance.full,
+    ]),
+    'illuminance:visible': mean([
+      sample1.illuminance.visible,
+      sample2.illuminance.visible,
+      sample3.illuminance.visible,
+    ]),
+    'illuminance:ir': mean([
+      sample1.illuminance.ir,
+      sample2.illuminance.ir,
+      sample3.illuminance.ir,
+    ]),
     temperature: mean([
       sample1.temperature,
       sample2.temperature,
@@ -45,7 +44,9 @@ import mean from 'lodash/mean';
     pressure: mean([sample1.pressure, sample2.pressure, sample3.pressure]),
   };
 
-  console.log({ data });
+  for (const [type, value] of Object.entries(data) as any) {
+    await Sensor.create({ type, value });
+  }
 
   process.exit(0);
 })();
