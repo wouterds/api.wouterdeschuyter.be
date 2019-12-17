@@ -8,6 +8,7 @@ COPY ./dist/server.js /code/server.js
 COPY ./dist/healthcheck.js /code/healthcheck.js
 COPY ./dist/sensor-sample.js /code/sensor-sample.js
 COPY ./.docker/node/crons /code/crons
+COPY ./.docker/node/entrypoint.sh /code/entrypoint.sh
 
 RUN yarn install --production
 
