@@ -17,6 +17,7 @@ jobs:
       JWT_SECRET: ${{ secrets.PRODUCTION_JWT_SECRET }}
       MAILJET_API_KEY: ${{ secrets.PRODUCTION_MAILJET_API_KEY }}
       MAILJET_API_SECRET: ${{ secrets.PRODUCTION_MAILJET_API_SECRET }}
+      SENSORS_API: ${{ secrets.PRODUCTION_SENSORS_API }}
       DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
       DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
       DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
