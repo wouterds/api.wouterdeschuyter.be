@@ -7,7 +7,7 @@ COPY ./yarn.lock ./
 COPY ./dist/server.js /code/server.js
 COPY ./dist/healthcheck.js /code/healthcheck.js
 COPY ./dist/sensor-sample.js /code/sensor-sample.js
-COPY ./.docker/node/crons ./crons
+COPY ./.docker/node/crons /code/crons
 
 RUN yarn install --production
 
