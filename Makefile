@@ -28,7 +28,7 @@ qemu-arm-static:
 	chmod +x qemu-arm-static
 
 .build-app: node_modules
-	docker run --rm -v $(PWD):/code -w /code -e ENV_SUFFIX -e DATABASE_HOST -e DATABASE_NAME -e DATABASE_USER -e DATABASE_PASS -e JWT_SECRET -e MAILJET_API_KEY -e MAILJET_API_SECRET -e SPOTIFY_ACCESS_TOKEN node:12-slim yarn build
+	docker run --rm -v $(PWD):/code -w /code -e ENV_SUFFIX -e DATABASE_HOST -e DATABASE_NAME -e DATABASE_USER -e DATABASE_PASS -e JWT_SECRET -e MAILJET_API_KEY -e MAILJET_API_SECRET -e SENSORS_API -e SPOTIFY_ACCESS_TOKEN node:12-slim yarn build
 	touch .build-app
 
 .build-node: qemu-arm-static .build-app ${DOCKERFILE_NODE}
