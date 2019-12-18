@@ -1,0 +1,8 @@
+type Song {
+  title: String
+  artist: String
+  spotifyUri: String
+  imageUri: String
+  isPlaying: Boolean
+  time: String
+}
