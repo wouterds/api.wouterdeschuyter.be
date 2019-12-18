@@ -19,6 +19,7 @@ jobs:
       MAILJET_API_KEY: ${{ secrets.STAGING_MAILJET_API_KEY }}
       MAILJET_API_SECRET: ${{ secrets.STAGING_MAILJET_API_SECRET }}
       SENSORS_API: ${{ secrets.STAGING_SENSORS_API }}
+      SPOTIFY_ACCESS_TOKEN: ${{ secrets.STAGING_SPOTIFY_ACCESS_TOKEN }}
       DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
       DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
       DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
