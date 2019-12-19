@@ -140,3 +140,36 @@ export const spotifyGetCurrentSongPlaying = async () => {
     time,
   };
 };
+
+export const spotifyGetLastPlayedSong = async () => {
+  const { data: response } = await axios({
+    method: 'GET',
+    url:
+      'https://api.spotify.com/v1/me/player/recently-played?type=track&limit=1',
+    headers: {
+      authorization: `Bearer ${process.env.SPOTIFY_ACCESS_TOKEN}`,
+    },
+  });
+
+  if (response.items.length === 0) {
+    return null;
+  }
+
+  const item = response.items[0];
+  const artist = item.track.artists[0].name;
+  const album = item.track.album;
+  const title = item.track.name;
+  const spotifyUri = item.track.external_urls.spotify;
+  const isPlaying = false;
+  const imageUri = album.images[0].url;
+  const time = new Date(`${item.played_at}`);
+
+  return {
+    artist,
+    title,
+    spotifyUri,
+    isPlaying,
+    imageUri,
+    time,
+  };
+};
