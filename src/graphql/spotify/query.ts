@@ -1,7 +1,7 @@
 import axios from 'axios';
 import AccessToken from 'models/access-token';
 
-const isSpotifyConnected = async () => {
+const spotifyIsConnected = async () => {
   const accessTokenCount = await AccessToken.count({
     where: { type: 'spotify' },
   });
@@ -13,7 +13,7 @@ const isSpotifyConnected = async () => {
   return true;
 };
 
-const getLastSongPlayed = async () => {
+const spotifyGetLastSong = async () => {
   const { data: responseCurrentSong } = await axios.get(
     'https://api.spotify.com/v1/me/player/currently-playing',
     {
@@ -76,6 +76,6 @@ const getLastSongPlayed = async () => {
 };
 
 export default {
-  isSpotifyConnected,
-  getLastSongPlayed,
+  spotifyIsConnected,
+  spotifyGetLastSong,
 };
