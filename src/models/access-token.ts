@@ -14,6 +14,7 @@ AccessToken.init(
       allowNull: false,
     },
     accessToken: { type: DataTypes.STRING, allowNull: false },
+    refreshToken: { type: DataTypes.STRING, allowNull: false },
   },
   {
     sequelize,
