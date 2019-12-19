@@ -6,7 +6,7 @@ import {
 
 const spotifyIsConnected = () => spotifyIsAuthorized();
 
-const spotifyGetLastSong = async () => {
+const spotifyListeningTo = async () => {
   const currentSong = await spotifyGetCurrentSongPlaying();
   if (currentSong) {
     return currentSong;
@@ -22,5 +22,5 @@ const spotifyGetLastSong = async () => {
 
 export default {
   spotifyIsConnected,
-  spotifyGetLastSong,
+  spotifyListeningTo,
 };

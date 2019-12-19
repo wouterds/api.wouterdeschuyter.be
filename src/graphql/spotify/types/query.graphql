@@ -1,4 +1,4 @@
 type Query {
   spotifyIsConnected: Boolean
-  spotifyGetLastSong: Song
+  spotifyListeningTo: Song
 }
