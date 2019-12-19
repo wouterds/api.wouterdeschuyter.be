@@ -6,7 +6,14 @@ const spotifyAuthorizeHandler = async (
     authorizationCode: string;
     redirectUri: string;
   },
+  context: { user?: { id: string } },
 ) => {
+  const { user } = context;
+
+  if (!user) {
+    throw new Error('not authenticated');
+  }
+
   const { authorizationCode, redirectUri } = args;
 
   const { accessToken, refreshToken, expiresAt } = await spotifyAuthorize(
