@@ -100,3 +100,11 @@ export const spotifyGetAccessToken = async (): Promise<string | null> => {
 
   return token.accessToken;
 };
+
+export const spotifyIsAuthorized = async () => {
+  const accessTokenCount = await AccessToken.count({
+    where: { type: 'spotify' },
+  });
+
+  return accessTokenCount > 0;
+};
