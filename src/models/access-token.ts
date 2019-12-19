@@ -26,6 +26,9 @@ AccessToken.init(
       {
         fields: ['type'],
       },
+      {
+        fields: ['refreshToken'],
+      },
     ],
   },
 );
