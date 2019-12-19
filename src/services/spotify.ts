@@ -77,3 +77,26 @@ export const spotifyRefreshAccessToken = async (refreshToken: string) => {
     expiresAt: addSeconds(new Date(), response.expires_in),
   };
 };
+
+export const spotifyGetAccessToken = async (): Promise<string | null> => {
+  const token = await AccessToken.findOne({
+    type: 'spotify',
+    order: [['createdAt', 'desc']],
+  });
+
+  if (!token) {
+    return null;
+  }
+
+  if (token.expiresAt < new Date()) {
+    const { accessToken, expiresAt } = await spotifyRefreshAccessToken(
+      token.refreshToken,
+    );
+
+    await spotifyCacheAccessToken(accessToken, token.refreshToken, expiresAt);
+
+    return accessToken;
+  }
+
+  return token.accessToken;
+};
