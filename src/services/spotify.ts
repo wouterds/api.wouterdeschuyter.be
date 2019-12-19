@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { addSeconds } from 'date-fns';
+import AccessToken from 'models/access-token';
 
 export const spotifyAuthorize = async (
   authorizationCode: string,
@@ -26,4 +27,17 @@ export const spotifyAuthorize = async (
     refreshToken: response.refresh_token,
     expiresAt: addSeconds(new Date(), response.expires_in),
   };
+};
+
+export const spotifyCacheAccessToken = async (
+  accessToken: string,
+  refreshToken: string,
+  expiresAt: Date,
+) => {
+  await AccessToken.create({
+    type: 'spotify',
+    accessToken,
+    refreshToken,
+    expiresAt,
+  });
 };
