@@ -13,7 +13,7 @@ AccessToken.init(
       type: DataTypes.ENUM('spotify'),
       allowNull: false,
     },
-    value: { type: DataTypes.STRING, allowNull: false },
+    accessToken: { type: DataTypes.STRING, allowNull: false },
   },
   {
     sequelize,
