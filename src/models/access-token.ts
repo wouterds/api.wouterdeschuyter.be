@@ -21,6 +21,7 @@ AccessToken.init(
     sequelize,
     tableName: 'access-tokens',
     timestamps: true,
+    paranoid: true,
     indexes: [
       {
         fields: ['type'],
