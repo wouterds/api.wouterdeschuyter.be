@@ -147,7 +147,7 @@ export const spotifyGetLastPlayedSong = async () => {
     url:
       'https://api.spotify.com/v1/me/player/recently-played?type=track&limit=1',
     headers: {
-      authorization: `Bearer ${process.env.SPOTIFY_ACCESS_TOKEN}`,
+      authorization: `Bearer ${await spotifyGetAccessToken()}`,
     },
   });
 
