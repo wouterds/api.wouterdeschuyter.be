@@ -34,6 +34,20 @@ export const spotifyCacheAccessToken = async (
   refreshToken: string,
   expiresAt: Date,
 ) => {
+  const token = await AccessToken.findOne({
+    where: {
+      type: 'spotify',
+      refreshToken,
+    },
+  });
+
+  if (token) {
+    token.accessToken = accessToken;
+    token.expiresAt = expiresAt;
+    await token.save();
+    return;
+  }
+
   await AccessToken.create({
     type: 'spotify',
     accessToken,
