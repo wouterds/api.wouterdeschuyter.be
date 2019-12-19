@@ -55,3 +55,25 @@ export const spotifyCacheAccessToken = async (
     expiresAt,
   });
 };
+
+export const spotifyRefreshAccessToken = async (refreshToken: string) => {
+  const { data: response } = await axios({
+    method: 'post',
+    url: 'https://accounts.spotify.com/api/token',
+    headers: {
+      Authorization: `Basic ${Buffer.from(
+        `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`,
+      ).toString('base64')}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    params: {
+      grant_type: 'refresh_token', // eslint-disable-line
+      refresh_token: refreshToken, // eslint-disable-line
+    },
+  });
+
+  return {
+    accessToken: response.access_token,
+    expiresAt: addSeconds(new Date(), response.expires_in),
+  };
+};
