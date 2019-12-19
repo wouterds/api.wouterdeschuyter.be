@@ -108,3 +108,35 @@ export const spotifyIsAuthorized = async () => {
 
   return accessTokenCount > 0;
 };
+
+export const spotifyGetCurrentSongPlaying = async () => {
+  const { data: response } = await axios({
+    method: 'GET',
+    url: 'https://api.spotify.com/v1/me/player/currently-playing',
+    headers: {
+      authorization: `Bearer ${await spotifyGetAccessToken()}`,
+    },
+  });
+
+  if (!response.item) {
+    return null;
+  }
+
+  const { item } = response;
+  const artist = item.artists[0].name;
+  const album = item.album;
+  const title = item.name;
+  const spotifyUri = item.external_urls.spotify;
+  const isPlaying = true;
+  const imageUri = album.images[0].url;
+  const time = new Date();
+
+  return {
+    artist,
+    title,
+    spotifyUri,
+    isPlaying,
+    imageUri,
+    time,
+  };
+};
