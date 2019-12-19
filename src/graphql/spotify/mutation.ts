@@ -1,4 +1,4 @@
-import { spotifyAuthorize } from 'services/spotify';
+import { spotifyAuthorize, spotifyCacheAccessToken } from 'services/spotify';
 
 const spotifyAuthorizeHandler = async (
   _parent: any,
@@ -9,7 +9,12 @@ const spotifyAuthorizeHandler = async (
 ) => {
   const { authorizationCode, redirectUri } = args;
 
-  await spotifyAuthorize(authorizationCode, redirectUri);
+  const { accessToken, refreshToken, expiresAt } = await spotifyAuthorize(
+    authorizationCode,
+    redirectUri,
+  );
+
+  await spotifyCacheAccessToken(accessToken, refreshToken, expiresAt);
 
   return true;
 };
