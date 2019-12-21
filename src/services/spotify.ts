@@ -123,7 +123,9 @@ export const spotifyGetCurrentSongPlaying = async () => {
   }
 
   const { item } = response;
-  const artist = item.artists[0].name;
+  const artist = item.artists
+    .map((artist: { name: string }) => artist.name)
+    .join(', ');
   const album = item.album;
   const title = item.name;
   const spotifyUri = item.external_urls.spotify;
@@ -156,7 +158,9 @@ export const spotifyGetLastPlayedSong = async () => {
   }
 
   const item = response.items[0];
-  const artist = item.track.artists[0].name;
+  const artist = item.artists
+    .map((artist: { name: string }) => artist.name)
+    .join(', ');
   const album = item.track.album;
   const title = item.track.name;
   const spotifyUri = item.track.external_urls.spotify;
