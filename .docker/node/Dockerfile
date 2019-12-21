@@ -5,7 +5,7 @@ COPY ./package.json ./package.json
 COPY ./yarn.lock ./yarn.lock
 COPY ./dist/server.js ./server.js
 COPY ./dist/healthcheck.js ./healthcheck.js
-COPY ./dist/sensor-sample.js ./sample.js
+COPY ./dist/sensor-sample.js ./sensor-sample.js
 COPY ./.docker/node/crons ./crons
 COPY ./.docker/node/entrypoint.sh ./entrypoint.sh
 COPY ./qemu-arm-static /usr/bin/qemu-arm-static
