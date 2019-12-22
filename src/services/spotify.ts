@@ -158,7 +158,7 @@ export const spotifyGetLastPlayedSong = async () => {
   }
 
   const item = response.items[0];
-  const artist = item.artists
+  const artist = item.track.artists
     .map((artist: { name: string }) => artist.name)
     .join(', ');
   const album = item.track.album;
