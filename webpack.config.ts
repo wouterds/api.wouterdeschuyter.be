@@ -11,6 +11,7 @@ export default {
     server: './src/server.ts',
     healthcheck: './src/scripts/healthcheck.ts',
     'sensor-sample': './src/scripts/sensor-sample.ts',
+    'status-led-dimmer': './src/scripts/status-led-dimmer.ts',
   },
   output: { path: path.resolve(__dirname, './dist') },
   resolve: { extensions: ['.json', '.ts'] },
