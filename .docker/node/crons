@@ -7,3 +7,4 @@
 # *  *  *  *  *  command to be executed
 
 * * * * * cd /code && node ./sensor-sample.js
+* * * * */10 cd /code && node ./status-led-dimmer.js
