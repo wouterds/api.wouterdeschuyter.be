@@ -36,6 +36,7 @@
     "lodash": "^4.17.15",
     "mariadb": "^2.1.1",
     "node-mailjet": "^3.3.1",
+    "qs": "^6.9.1",
     "sequelize": "^5.21.3",
     "statuses": "^1.5.0",
     "uuid": "^3.3.3"
@@ -52,6 +53,7 @@
     "@types/jsonwebtoken": "^8.3.4",
     "@types/lodash": "^4.14.149",
     "@types/node": "^12.12.18",
+    "@types/qs": "^6.9.0",
     "@types/statuses": "^1.5.0",
     "@types/uuid": "^3.4.5",
     "@types/webpack": "^4.39.2",
