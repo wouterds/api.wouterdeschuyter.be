@@ -58,7 +58,21 @@ const sensor = async (_parent: any, args: { type: string; live?: boolean }) => {
   });
 };
 
+const sensorHistory = async (
+  _parent: any,
+  args: { type: string; start: string; end: string },
+) => {
+  const { type, start, end } = args;
+  const startDate = new Date(start);
+  const endDate = new Date(end);
+
+  console.log({ type, startDate, endDate });
+
+  return { type, data: [] };
+};
+
 export default {
   sensors,
   sensor,
+  sensorHistory,
 };
