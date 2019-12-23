@@ -24,10 +24,11 @@ cp .env.example .env
 
 ```javascript
 {
-  "eslint.autoFixOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "eslint.validate": [
-    { "language": "javascript", "autoFix": true },
-    { "language": "typescript", "autoFix": true },
+    "javascript", "typescript"
   ],
 }
 ```
