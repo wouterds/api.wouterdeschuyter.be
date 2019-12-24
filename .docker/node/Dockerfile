@@ -24,6 +24,6 @@ RUN crontab ./crons
 
 EXPOSE 3001
 
-HEALTHCHECK CMD node ./healthcheck
+HEALTHCHECK CMD ["node", "./healthcheck.js"]
 
 CMD ["./entrypoint.sh"]
