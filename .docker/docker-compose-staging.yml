@@ -4,7 +4,7 @@ services:
   node:
     image: docker.wouterdeschuyter.be/api.wouterdeschuyter.be/node:latest-staging
     restart: unless-stopped
-    mem_limit: 64mb
+    mem_limit: 128mb
     volumes:
       - ./data:/data
     environment:
@@ -16,10 +16,6 @@ services:
       - default
       - webproxy
       - mariadb
-    logging:
-      options:
-        max-size: 2m
-        max-file: '5'
 
 networks:
   webproxy:

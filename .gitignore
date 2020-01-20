@@ -4,4 +4,3 @@
 .build-*
 node_modules/
 dist/
-qemu-arm-static

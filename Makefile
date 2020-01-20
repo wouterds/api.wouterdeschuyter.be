@@ -14,7 +14,6 @@ clean:
 	-rm -rf dist
 	-rm -rf .env
 	-rm -rf .build-*
-	-rm -rf qemu-arm-static
 
 node_modules: yarn.lock
 	docker run --rm -v ${PWD}:/code -w /code node:12-slim yarn
@@ -22,16 +21,11 @@ node_modules: yarn.lock
 lint: node_modules
 	docker run --rm -v ${PWD}:/code -w /code node:12-slim yarn lint
 
-qemu-arm-static:
-	docker run --rm --privileged multiarch/qemu-user-static:register --reset
-	curl -OL https://github.com/multiarch/qemu-user-static/releases/download/v4.1.0-1/qemu-arm-static
-	chmod +x qemu-arm-static
-
 .build-app: node_modules
 	docker run --rm -v $(PWD):/code -w /code -e ENV_SUFFIX -e DATABASE_HOST -e DATABASE_NAME -e DATABASE_USER -e DATABASE_PASS -e JWT_SECRET -e MAILJET_API_KEY -e MAILJET_API_SECRET -e SENSORS_API -e SPOTIFY_CLIENT_ID -e SPOTIFY_CLIENT_SECRET node:12-slim yarn build
 	touch .build-app
 
-.build-node: qemu-arm-static .build-app ${DOCKERFILE_NODE}
+.build-node: .build-app ${DOCKERFILE_NODE}
 	docker build -f ${DOCKERFILE_NODE} -t ${TAG_NODE}:latest${ENV_SUFFIX} .
 	touch .build-node
 

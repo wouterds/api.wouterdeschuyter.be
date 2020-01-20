@@ -16,10 +16,6 @@ services:
       - default
       - webproxy
       - mariadb
-    logging:
-      options:
-        max-size: 2m
-        max-file: '5'
 
 networks:
   webproxy:
