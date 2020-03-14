@@ -1,7 +1,7 @@
 import { extname } from 'path';
 import { imageSize } from 'image-size';
 import hasha from 'hasha';
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import MediaAsset from 'models/media-asset';
 import { saveFile, getFileSize } from 'services/storage';
 
@@ -38,7 +38,7 @@ const addMediaAssetFile = async (
     return searchMedia;
   }
 
-  const id = uuid.v4();
+  const id = uuidv4();
   const path = `/media-assets/${id}${extension}`;
   const fsPath = await saveFile(path, createReadStream());
 
