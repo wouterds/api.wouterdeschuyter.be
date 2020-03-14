@@ -8,7 +8,7 @@
     "start": "node server",
     "dev": "nodemon",
     "sync:models": "BABEL_DISABLE_CACHE=1 babel-node --extensions '.ts' -r ./src/bootstrap.ts ./src/scripts/sync-models.ts",
-    "playground": "BABEL_DISABLE_CACHE=1 babel-node --extensions '.ts' -r ./src/bootstrap.ts ./src/scripts/playground.ts",
+    "process-pictures": "BABEL_DISABLE_CACHE=1 babel-node --extensions '.ts' -r ./src/bootstrap.ts ./src/scripts/process-pictures.ts",
     "server:dev": "BABEL_DISABLE_CACHE=1 babel-node --extensions '.ts' -r ./src/bootstrap.ts ./src/server.ts",
     "lint": "eslint '**/*.ts' && tsc",
     "lint:fix": "eslint '**/*.ts' --fix",
