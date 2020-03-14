@@ -7,9 +7,9 @@
   "scripts": {
     "start": "node server",
     "dev": "nodemon",
-    "sync:models": "BABEL_DISABLE_CACHE=1 babel-node --extensions '.ts' -r ./src/bootstrap ./src/scripts/sync-models",
-    "playground": "BABEL_DISABLE_CACHE=1 babel-node --extensions '.ts' -r ./src/bootstrap ./src/scripts/playground",
-    "server:dev": "BABEL_DISABLE_CACHE=1 babel-node --extensions '.ts' -r ./src/bootstrap ./src/server",
+    "sync:models": "BABEL_DISABLE_CACHE=1 babel-node --extensions '.ts' -r ./src/bootstrap.ts ./src/scripts/sync-models.ts",
+    "playground": "BABEL_DISABLE_CACHE=1 babel-node --extensions '.ts' -r ./src/bootstrap.ts ./src/scripts/playground.ts",
+    "server:dev": "BABEL_DISABLE_CACHE=1 babel-node --extensions '.ts' -r ./src/bootstrap.ts ./src/server.ts",
     "lint": "eslint '**/*.ts' && tsc",
     "lint:fix": "eslint '**/*.ts' --fix",
     "build": "webpack --config ./webpack.config.ts"
