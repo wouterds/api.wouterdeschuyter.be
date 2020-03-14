@@ -56,7 +56,7 @@
     "@types/qs": "^6.9.1",
     "@types/statuses": "^1.5.0",
     "@types/uuid": "^7.0.0",
-    "@types/webpack": "^4.41.6",
+    "@types/webpack": "^4.41.7",
     "@types/webpack-node-externals": "^1.7.1",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
@@ -72,8 +72,8 @@
     "prettier": "^1.18.2",
     "ts-node": "^8.6.2",
     "typescript": "^3.8.3",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.9",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
     "webpack-node-externals": "^1.7.2"
   }
 }
