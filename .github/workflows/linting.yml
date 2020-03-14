@@ -1,0 +1,17 @@
+name: 'linting'
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Dependencies
+        run: make node_modules
+      - name: Linting
+        run: make lint
