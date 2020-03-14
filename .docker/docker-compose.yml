@@ -16,6 +16,8 @@ services:
       - 'traefik.http.routers.bewouterdeschuyterapi-https.tls.certresolver=myhttpchallenge'
     restart: unless-stopped
     mem_limit: 128mb
+    volumes:
+      - ./data:/data
     networks:
       - reverse-proxy
       - mariadb
