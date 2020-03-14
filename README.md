@@ -1,6 +1,7 @@
 # api.wouterdeschuyter.be
 
 ![production](https://github.com/wouterds/api.wouterdeschuyter.be/workflows/production/badge.svg)
+![linting](https://github.com/wouterds/api.wouterdeschuyter.be/workflows/linting/badge.svg)
 ![dependencies](https://img.shields.io/david/wouterds/api.wouterdeschuyter.be)
 ![tag](https://img.shields.io/github/tag/wouterds/api.wouterdeschuyter.be.svg)
 ![repo size](https://img.shields.io/github/repo-size/wouterds/api.wouterdeschuyter.be)
