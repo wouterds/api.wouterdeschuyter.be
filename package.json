@@ -30,7 +30,7 @@
     "express-jwt": "^5.3.1",
     "graphql-tools": "^4.0.7",
     "graphql-upload": "^10.0.0",
-    "hasha": "^5.1.0",
+    "hasha": "^5.2.0",
     "image-size": "^0.8.3",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
