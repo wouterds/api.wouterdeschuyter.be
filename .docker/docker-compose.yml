@@ -20,10 +20,10 @@ services:
       - ./data:/data
     networks:
       - reverse-proxy
-      - mariadb
+      - database
 
 networks:
   reverse-proxy:
     external: true
-  mariadb:
+  database:
     external: true
