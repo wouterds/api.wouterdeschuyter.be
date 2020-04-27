@@ -64,7 +64,7 @@
     "babel-plugin-import-graphql": "^2.7.0",
     "babel-plugin-module-resolver": "^4.0.0",
     "eslint": "^6.5.1",
-    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.2.3",
     "json-loader": "^0.5.7",
