@@ -1,6 +1,7 @@
 import { basename } from 'path';
 import { DataTypes, Model } from 'sequelize';
 import sequelize from 'services/sequelize';
+
 import User from './user';
 
 class MediaAsset extends Model {}

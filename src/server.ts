@@ -1,8 +1,9 @@
-import Express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import bodyParser from 'body-parser';
+import Express from 'express';
 import jwt from 'express-jwt';
 import User from 'models/user';
+
 import schema from './graphql/schema';
 import requestHandlers from './request-handlers';
 

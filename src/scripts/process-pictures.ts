@@ -1,15 +1,15 @@
-import { v4 as uuidv4 } from 'uuid';
-import { resolve, join, extname } from 'path';
 import {
-  readdirSync,
-  statSync,
-  mkdirSync,
+  copyFileSync,
   createReadStream,
   existsSync,
-  copyFileSync,
+  mkdirSync,
+  readdirSync,
+  statSync,
 } from 'fs';
-import { imageSize } from 'image-size';
 import hasha from 'hasha';
+import { imageSize } from 'image-size';
+import { extname, join, resolve } from 'path';
+import { v4 as uuidv4 } from 'uuid';
 
 (async () => {
   const userId = process.argv[2];

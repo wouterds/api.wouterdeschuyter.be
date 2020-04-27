@@ -1,7 +1,7 @@
+import dotenv from 'dotenv';
 import path from 'path';
 import { EnvironmentPlugin } from 'webpack';
 import nodeExternals from 'webpack-node-externals';
-import dotenv from 'dotenv';
 
 export default {
   mode: 'production',

@@ -1,7 +1,8 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from 'services/sequelize';
-import User from './user';
+
 import MediaAsset from './media-asset';
+import User from './user';
 
 class Post extends Model {}
 Post.init(

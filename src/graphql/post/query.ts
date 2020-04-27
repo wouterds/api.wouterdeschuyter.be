@@ -1,5 +1,5 @@
-import { Op } from 'sequelize';
 import Post from 'models/post';
+import { Op } from 'sequelize';
 
 const postCount = () => {
   return Post.count({

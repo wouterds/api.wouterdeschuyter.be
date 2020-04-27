@@ -1,12 +1,12 @@
-import { resolve, join } from 'path';
 import {
   createReadStream,
   createWriteStream,
-  unlinkSync,
   existsSync,
   mkdirSync,
   statSync,
+  unlinkSync,
 } from 'fs';
+import { join, resolve } from 'path';
 
 export const saveFile = async (
   location: string,
@@ -20,7 +20,7 @@ export const saveFile = async (
   parts.pop();
   mkdirSync(parts.join('/'), { recursive: true });
 
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const abort = () => {
       if (existsSync(path)) {
         unlinkSync(path);

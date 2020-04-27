@@ -1,6 +1,6 @@
 import { readdirSync } from 'fs';
-import sequelize from 'services/sequelize';
 import { resolve } from 'path';
+import sequelize from 'services/sequelize';
 
 if (process.env.NODE_ENV === 'production') {
   console.error("Unsafe application mode, don't sync models to database!");

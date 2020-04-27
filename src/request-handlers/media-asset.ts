@@ -1,8 +1,8 @@
-import { extname } from 'path';
 import { Request, Response } from 'express';
-import statuses from 'statuses';
 import MediaAsset from 'models/media-asset';
+import { extname } from 'path';
 import { getFile } from 'services/storage';
+import statuses from 'statuses';
 
 export default async (req: Request, res: Response) => {
   const { id, ext } = req.params;

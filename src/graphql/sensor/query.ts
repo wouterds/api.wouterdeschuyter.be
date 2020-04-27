@@ -43,7 +43,7 @@ const sensor = async (_parent: any, args: { type: string; live?: boolean }) => {
 
   if (live) {
     const sensors = await fetchAll();
-    const filtered = sensors.filter(sensor => sensor.type === type);
+    const filtered = sensors.filter((sensor) => sensor.type === type);
 
     if (filtered.length > 0) {
       return filtered[0];

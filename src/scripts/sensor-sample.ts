@@ -7,13 +7,13 @@ import Sensor from 'models/sensor';
     .get(`${process.env.SENSORS_API}`)
     .catch(() => process.exit(1));
 
-  await new Promise(resolve => setTimeout(resolve, 12500));
+  await new Promise((resolve) => setTimeout(resolve, 12500));
 
   const { data: sample2 } = await axios
     .get(`${process.env.SENSORS_API}`)
     .catch(() => process.exit(1));
 
-  await new Promise(resolve => setTimeout(resolve, 12500));
+  await new Promise((resolve) => setTimeout(resolve, 12500));
 
   const { data: sample3 } = await axios
     .get(`${process.env.SENSORS_API}`)
