@@ -16,13 +16,13 @@ clean:
 	-rm -rf .build-*
 
 node_modules: yarn.lock
-	docker run --rm -v ${PWD}:/code -w /code node:12-slim yarn
+	docker run --rm -v ${PWD}:/code -w /code node:14-slim yarn
 
 lint: node_modules
-	docker run --rm -v ${PWD}:/code -w /code node:12-slim yarn lint
+	docker run --rm -v ${PWD}:/code -w /code node:14-slim yarn lint
 
 .build-app: node_modules
-	docker run --rm -v $(PWD):/code -w /code -e DATABASE_HOST -e DATABASE_NAME -e DATABASE_USER -e DATABASE_PASS -e JWT_SECRET -e MAILJET_API_KEY -e MAILJET_API_SECRET -e SENSORS_API -e SPOTIFY_CLIENT_ID -e SPOTIFY_CLIENT_SECRET node:12-slim yarn build
+	docker run --rm -v $(PWD):/code -w /code -e DATABASE_HOST -e DATABASE_NAME -e DATABASE_USER -e DATABASE_PASS -e JWT_SECRET -e MAILJET_API_KEY -e MAILJET_API_SECRET -e SENSORS_API -e SPOTIFY_CLIENT_ID -e SPOTIFY_CLIENT_SECRET node:14-slim yarn build
 	touch .build-app
 
 .build-node: .build-app ${DOCKERFILE_NODE}

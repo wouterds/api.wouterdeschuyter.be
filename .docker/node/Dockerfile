@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:14-alpine
 WORKDIR /code
 
 COPY ./package.json ./package.json
@@ -12,7 +12,7 @@ COPY ./.docker/node/entrypoint.sh ./entrypoint.sh
 
 RUN yarn install --production
 
-FROM node:12-alpine
+FROM node:14-alpine
 WORKDIR /code
 VOLUME /data
 
