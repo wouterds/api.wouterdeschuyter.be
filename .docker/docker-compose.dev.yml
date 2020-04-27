@@ -2,7 +2,7 @@ version: '2'
 
 services:
   mariadb:
-    image: mariadb:10.4
+    image: mariadb:10.5
     volumes:
       - ./data/mariadb:/var/lib/mysql
     ports:
