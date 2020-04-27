@@ -55,7 +55,7 @@
     "@types/node": "^13.13.4",
     "@types/qs": "^6.9.1",
     "@types/statuses": "^1.5.0",
-    "@types/uuid": "^7.0.0",
+    "@types/uuid": "^7.0.3",
     "@types/webpack": "^4.41.7",
     "@types/webpack-node-externals": "^1.7.1",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
