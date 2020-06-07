@@ -4,8 +4,8 @@ VERSION = $(shell cat package.json | grep "\"version\"" | sed -e 's/^.*: "\(.*\)
 DOCKER_COMPOSE = ./.docker/docker-compose.yml
 DOCKERFILE_NODE = ./.docker/node/Dockerfile
 
-TAG_PREFIX = docker.wouterdeschuyter.be/api.wouterdeschuyter.be
-TAG_NODE = ${TAG_PREFIX}/node
+TAG_PREFIX = wouterds/api.wouterdeschuyter.be
+TAG_NODE = ${TAG_PREFIX}:node
 
 all: build
 
@@ -26,18 +26,18 @@ lint: node_modules
 	touch .build-app
 
 .build-node: .build-app ${DOCKERFILE_NODE}
-	docker build -f ${DOCKERFILE_NODE} -t ${TAG_NODE}:latest .
+	docker build -f ${DOCKERFILE_NODE} -t ${TAG_NODE} .
 	touch .build-node
 
 build: .build-node
-	docker tag ${TAG_NODE}:latest ${TAG_NODE}:${VERSION}
+	docker tag ${TAG_NODE} ${TAG_NODE}-${VERSION}
 
 docker-login:
-	docker login docker.wouterdeschuyter.be -u ${DOCKER_REGISTRY_USER} -p ${DOCKER_REGISTRY_PASS}
+	docker login -u ${DOCKER_REGISTRY_USER} -p ${DOCKER_REGISTRY_PASS}
 
 push: build docker-login
-	docker push ${TAG_NODE}:latest
-	docker push ${TAG_NODE}:${VERSION}
+	docker push ${TAG_NODE}
+	docker push ${TAG_NODE}-${VERSION}
 
 deploy:
 	ssh ${DEPLOY_USER}@${DEPLOY_HOST} "mkdir -p ${DEPLOY_PATH}"
