@@ -8,6 +8,12 @@
 
 A GraphQL API that powers my personal website, and maybe a bit more in the future, I'm not sure yet. It's built with Nodejs and written in TypeScript using a few packages like Express, Apollo & Sequelize.
 
+## Running
+
+```bash
+docker-compose -f .docker/docker-compose.dev.yml up
+```
+
 ## Setup
 
 ```bash
@@ -31,10 +37,4 @@ cp .env.example .env
     "javascript", "typescript"
   ],
 }
-```
-
-## Running
-
-```bash
-docker-compose -f .docker/docker-compose.dev.yml up
 ```
