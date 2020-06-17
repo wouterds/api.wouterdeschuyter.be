@@ -1,4 +1,4 @@
-import { sendMail } from 'services/mail';
+import MailService from 'services/mail';
 
 const contact = (
   _parent: any,
@@ -11,13 +11,19 @@ const contact = (
 ) => {
   const { name, email, subject, message } = args;
 
-  return sendMail(
-    { name: `Website (${name})`, email: 'no-reply@wouterdeschuyter.be' },
-    { name: 'Wouter De Schuyter', email: 'wouter.de.schuyter@gmail.com' },
-    { name, email },
-    `[Contact] ${subject}`,
-    message,
-  );
+  return MailService.send({
+    sender: {
+      name: `Website (${name})`,
+      email: 'no-reply@wouterdeschuyter.be',
+    },
+    receiver: {
+      name: 'Wouter De Schuyter',
+      email: 'wouter.de.schuyter@gmail.com',
+    },
+    replyTo: { name, email },
+    subject: `[Contact] ${subject}`,
+    text: message,
+  });
 };
 
 export default {
