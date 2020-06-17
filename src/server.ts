@@ -2,7 +2,7 @@ import { ApolloServer } from 'apollo-server-express';
 import bodyParser from 'body-parser';
 import Express, { Request } from 'express';
 import jwt from 'express-jwt';
-import User from 'models/user';
+import User, { UserStatus } from 'models/user';
 
 import schema from './graphql/schema';
 import requestHandlers from './request-handlers';
@@ -38,7 +38,7 @@ const apollo = new ApolloServer({
       return context;
     }
 
-    if (user.status !== 'ACTIVE') {
+    if (user.status !== UserStatus.Active) {
       return context;
     }
 

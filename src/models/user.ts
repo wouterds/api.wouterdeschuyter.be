@@ -1,6 +1,12 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from 'services/sequelize';
 
+export enum UserStatus {
+  Active = 'ACTIVE',
+  NotActive = 'NOT_ACTIVE',
+  Deleted = 'DELETED',
+}
+
 class User extends Model {}
 User.init(
   {
@@ -18,14 +24,14 @@ User.init(
       type: DataTypes.VIRTUAL,
       get(this: any) {
         if (this.getDataValue('deletedAt')) {
-          return 'DELETED';
+          return UserStatus.Deleted;
         }
 
         if (!this.getDataValue('activatedAt')) {
-          return 'NOT_ACTIVATED';
+          return UserStatus.NotActive;
         }
 
-        return 'ACTIVE';
+        return UserStatus.Active;
       },
     },
     lastOnlineAt: { type: DataTypes.DATE, allowNull: true },
