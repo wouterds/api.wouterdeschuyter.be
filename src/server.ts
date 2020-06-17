@@ -1,38 +1,53 @@
 import { ApolloServer } from 'apollo-server-express';
 import bodyParser from 'body-parser';
-import Express from 'express';
+import Express, { Request } from 'express';
 import jwt from 'express-jwt';
 import User from 'models/user';
 
 import schema from './graphql/schema';
 import requestHandlers from './request-handlers';
 
-// Server
+export interface GraphqlContext {
+  user: { id: string } | null;
+  ip: string;
+  userAgent: string;
+}
+
 const express = Express();
 express.disable('x-powered-by');
 
 const apollo = new ApolloServer({
   schema,
   playground: process.env.NODE_ENV !== 'production',
-  context: async ({ req }: { req: { user: { id: string } } }) => {
-    if (!req.user) {
-      return { user: null };
+  context: async ({ req }: { req: Request & { user: { id?: string } } }) => {
+    const ip = `${req.get('cf-connecting-ip') || req.connection.remoteAddress}`;
+    const userAgent = `${req.get('user-agent')}`;
+
+    const context: GraphqlContext = {
+      user: null,
+      ip,
+      userAgent,
+    };
+
+    if (!req?.user?.id) {
+      return context;
     }
 
     const user = await User.findOne({ where: { id: req.user.id } });
-
     if (!user) {
-      return { user: null };
+      return context;
     }
 
     if (user.status !== 'ACTIVE') {
-      return { user: null };
+      return context;
     }
 
     user.lastOnlineAt = new Date();
     user.save();
 
-    return { user: { id: user.id } };
+    context.user = { id: user.id };
+
+    return context;
   },
 });
 
