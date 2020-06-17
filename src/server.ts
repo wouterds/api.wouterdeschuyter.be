@@ -9,6 +9,8 @@ import requestHandlers from './request-handlers';
 
 // Server
 const express = Express();
+express.disable('x-powered-by');
+
 const apollo = new ApolloServer({
   schema,
   playground: process.env.NODE_ENV !== 'production',
