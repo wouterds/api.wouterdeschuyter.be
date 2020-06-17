@@ -1,6 +1,6 @@
-import { Sequelize } from 'sequelize';
+import { Sequelize as _Sequalize } from 'sequelize';
 
-export default new Sequelize({
+const Sequelize = new _Sequalize({
   dialect: 'mariadb',
   dialectOptions: {
     timezone: 'UTC',
@@ -13,3 +13,5 @@ export default new Sequelize({
     charset: 'utf8mb4',
   },
 });
+
+export default Sequelize;
