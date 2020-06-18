@@ -1,7 +1,6 @@
 # api.wouterdeschuyter.be
 
 ![version](https://img.shields.io/github/v/tag/wouterds/api.wouterdeschuyter.be?color=orange&label=version)
-![uptime](https://img.shields.io/uptimerobot/ratio/7/m785175927-f6f9bd375e16090bfc350f36)
 ![release](https://github.com/wouterds/api.wouterdeschuyter.be/workflows/release/badge.svg)
 ![linting](https://github.com/wouterds/api.wouterdeschuyter.be/workflows/linting/badge.svg)
 ![dependencies](https://img.shields.io/david/wouterds/api.wouterdeschuyter.be)
