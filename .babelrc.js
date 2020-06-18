@@ -14,6 +14,7 @@ module.exports = {
   ],
   plugins: [
     'import-graphql',
+    '@babel/plugin-proposal-optional-chaining',
     [
       'module-resolver',
       {
