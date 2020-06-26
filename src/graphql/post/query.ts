@@ -1,4 +1,5 @@
 import Post from 'models/post';
+import PostAlias from 'models/post-alias';
 import { Op } from 'sequelize';
 
 const postCount = () => {
@@ -7,7 +8,7 @@ const postCount = () => {
   });
 };
 
-const post = (
+const post = async (
   _parent: any,
   args: { id?: string; slug?: string },
   context: { user?: { id: string } },
@@ -29,7 +30,24 @@ const post = (
     where.slug = slug;
   }
 
-  return Post.findOne({ where, include: ['user', 'mediaAsset'] });
+  const post = await Post.findOne({ where, include: ['user', 'mediaAsset'] });
+  if (post) {
+    return post;
+  }
+
+  if (!slug) {
+    return null;
+  }
+
+  const postAlias = await PostAlias.findOne({
+    where: { slug },
+    include: ['post'],
+  });
+  if (!postAlias) {
+    return null;
+  }
+
+  return postAlias.post;
 };
 
 const posts = (_parent: any, args: { limit?: number; offset?: number }) => {
