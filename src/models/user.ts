@@ -15,11 +15,8 @@ User.init(
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    firstName: { type: DataTypes.STRING(32), allowNull: false },
-    lastName: { type: DataTypes.STRING(32), allowNull: false },
+    name: { type: DataTypes.STRING(64), allowNull: false },
     email: { type: DataTypes.STRING(64), allowNull: false },
-    salt: { type: DataTypes.STRING(64), allowNull: false },
-    password: { type: DataTypes.STRING(64), allowNull: false },
     status: {
       type: DataTypes.VIRTUAL,
       get(this: any) {
