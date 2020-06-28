@@ -31,10 +31,10 @@ cp .env.example .env
 ```javascript
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
   },
   "eslint.validate": [
-    "javascript", "typescript"
+    "javascript", "typescript",
   ],
 }
 ```
