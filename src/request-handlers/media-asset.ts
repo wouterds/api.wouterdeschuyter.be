@@ -5,6 +5,7 @@ import { getFile } from 'services/storage';
 
 export default async (req: Request, res: Response) => {
   const { id, ext } = req.params;
+  const { embed } = req.query;
 
   const mediaAsset = await MediaAsset.findOne({ where: { id } });
 
@@ -18,6 +19,10 @@ export default async (req: Request, res: Response) => {
   if (`.${ext}` !== extname(path)) {
     res.sendStatus(400);
     return;
+  }
+
+  if (embed === 'true') {
+    // resize image
   }
 
   res.header('content-type', mediaType);
