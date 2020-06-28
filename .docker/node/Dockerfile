@@ -7,6 +7,7 @@ COPY ./dist/server.js ./server.js
 COPY ./dist/healthcheck.js ./healthcheck.js
 COPY ./dist/sensor-sample.js ./sensor-sample.js
 COPY ./dist/status-led-dimmer.js ./status-led-dimmer.js
+COPY ./dist/backfill-blurhash.js ./backfill-blurhash.js
 COPY ./.docker/node/crons ./crons
 COPY ./.docker/node/entrypoint.sh ./entrypoint.sh
 
