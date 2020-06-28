@@ -13,6 +13,7 @@ export interface MediaAssetDefition {
   width?: number;
   height?: number;
   md5?: string;
+  blurhash?: string;
   path?: string;
   url?: string;
   fileName?: string;
@@ -37,6 +38,7 @@ MediaAsset.init(
     width: { type: DataTypes.INTEGER, allowNull: true },
     height: { type: DataTypes.INTEGER, allowNull: true },
     md5: { type: DataTypes.STRING(32), allowNull: true },
+    blurhash: { type: DataTypes.STRING(64), allowNull: true },
     path: { type: DataTypes.STRING(64), allowNull: true },
     url: { type: DataTypes.STRING(64), allowNull: true },
     fileName: {
