@@ -2,12 +2,21 @@ import { DataTypes, Model } from 'sequelize';
 import sequelize from 'services/sequelize';
 
 export enum UserStatus {
-  Active = 'ACTIVE',
-  NotActive = 'NOT_ACTIVE',
-  Deleted = 'DELETED',
+  Active = 'active',
+  NotActive = 'not-active',
+  Deleted = 'deleted',
 }
 
-class User extends Model {}
+export interface UserDefition {
+  id: string;
+  name: string;
+  email: string;
+  status: UserStatus;
+  activatedAt: Date;
+  lastOnlineAt: Date;
+}
+
+class User extends Model<UserDefition> {}
 User.init(
   {
     id: {
