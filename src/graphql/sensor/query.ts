@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Sensor from 'models/sensor';
+import Sensor, { SensorType } from 'models/sensor';
 
 const fetchAll = async () => {
   const data: any = {};
@@ -7,12 +7,12 @@ const fetchAll = async () => {
   try {
     const { data: response } = await axios.get(`${process.env.SENSORS_API}`);
 
-    data.temperature = response.temperature;
-    data.humidity = response.humidity;
-    data.pressure = response.pressure;
-    data['illuminance:ir'] = response.illuminance.ir;
-    data['illuminance:visible'] = response.illuminance.visible;
-    data['illuminance:full'] = response.illuminance.full;
+    data[SensorType.Temperature] = response.temperature;
+    data[SensorType.Humidity] = response.humidity;
+    data[SensorType.Pressure] = response.pressure;
+    data[SensorType.IlluminanceIr] = response.illuminance.ir;
+    data[SensorType.IlluminanceVisible] = response.illuminance.visible;
+    data[SensorType.IlluminanceFull] = response.illuminance.full;
   } catch {}
 
   const sensors = [];
