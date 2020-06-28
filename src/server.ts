@@ -62,7 +62,7 @@ express.use(
 
 // Healthcheck
 express.get('/ping', requestHandlers.ping);
-express.get('/media-asset/:id.:ext', requestHandlers.mediaAsset);
+express.get('/media-assets/:id.:ext', requestHandlers.mediaAsset);
 
 // Link Apollo with Express
 apollo.applyMiddleware({ app: express, path: '/' });
