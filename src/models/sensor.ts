@@ -1,7 +1,22 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from 'services/sequelize';
 
-class Sensor extends Model {}
+export enum SensorType {
+  IlluminanceFull = 'illuminance:full',
+  IlluminanceVisible = 'illuminance:visible',
+  IlluminanceIr = 'illuminance:ir',
+  Temperature = 'temperature',
+  Humidity = 'humidity',
+  Pressure = 'pressure',
+}
+
+export interface SensorDefition {
+  id: string;
+  type: SensorType;
+  value: number;
+}
+
+class Sensor extends Model<SensorDefition> {}
 Sensor.init(
   {
     id: {
