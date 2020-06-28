@@ -12,6 +12,7 @@ export default {
     healthcheck: './src/scripts/healthcheck.ts',
     'sensor-sample': './src/scripts/sensor-sample.ts',
     'status-led-dimmer': './src/scripts/status-led-dimmer.ts',
+    'backfill-blurhash': './src/scripts/backfill-blurhash.ts',
   },
   output: { path: path.resolve(__dirname, './dist') },
   resolve: { extensions: ['.json', '.ts'] },
