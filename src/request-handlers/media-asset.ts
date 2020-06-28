@@ -27,7 +27,7 @@ export default async (req: Request, res: Response) => {
 
   res.header('content-type', mediaType);
 
-  if (embed === 'true' && mediaType.contains('image')) {
+  if (embed === 'true' && mediaType.includes('image')) {
     getFile(path)
       .pipe(sharp().resize(1200, 630, { fit: sharp.fit.cover }).jpeg())
       .pipe(res);
