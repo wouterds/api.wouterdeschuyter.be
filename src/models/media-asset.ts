@@ -4,7 +4,21 @@ import sequelize from 'services/sequelize';
 
 import User from './user';
 
-class MediaAsset extends Model {}
+export interface MediaAssetDefition {
+  id: string;
+  userId: string;
+  name: string;
+  mediaType?: string;
+  size?: number;
+  width?: number;
+  height?: number;
+  md5?: string;
+  path?: string;
+  url?: string;
+  fileName?: string;
+}
+
+class MediaAsset extends Model<MediaAssetDefition> {}
 MediaAsset.init(
   {
     id: {
