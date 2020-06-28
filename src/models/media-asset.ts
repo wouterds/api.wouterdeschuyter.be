@@ -1,3 +1,5 @@
+import { decode as blurhashDecode } from 'blurhash';
+import { createCanvas } from 'canvas';
 import { basename } from 'path';
 import { DataTypes, Model } from 'sequelize';
 import sequelize from 'services/sequelize';
@@ -13,7 +15,7 @@ export interface MediaAssetDefition {
   width?: number;
   height?: number;
   md5?: string;
-  blurhash?: string;
+  imagePreview?: string;
   path?: string;
   url?: string;
   fileName?: string;
@@ -51,6 +53,34 @@ MediaAsset.init(
         }
 
         return basename(path);
+      },
+    },
+    imagePreview: {
+      type: DataTypes.VIRTUAL,
+      get(this: any) {
+        const blurhash = this.getDataValue('blurhash');
+
+        if (!blurhash) {
+          return null;
+        }
+
+        const pixels = blurhashDecode(blurhash, 32, 32);
+        const canvas = createCanvas(32, 32);
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+          return null;
+        }
+
+        const imageData = ctx.createImageData(32, 32);
+        if (!imageData) {
+          return null;
+        }
+
+        imageData.data.set(pixels);
+        ctx.putImageData(imageData, 0, 0);
+
+        return canvas.toDataURL('image/jpeg');
       },
     },
   },
