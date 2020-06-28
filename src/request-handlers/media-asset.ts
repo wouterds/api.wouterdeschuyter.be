@@ -2,6 +2,10 @@ import { Request, Response } from 'express';
 import MediaAsset from 'models/media-asset';
 import { extname } from 'path';
 import { getFile } from 'services/storage';
+import sharp from 'sharp';
+
+// https://github.com/lovell/sharp/blob/master/docs/install.md#alpine-linux
+sharp.cache(false);
 
 export default async (req: Request, res: Response) => {
   const { id, ext } = req.params;
@@ -14,18 +18,21 @@ export default async (req: Request, res: Response) => {
     return;
   }
 
-  const { path, size, mediaType } = mediaAsset;
+  const { path, mediaType } = mediaAsset;
 
   if (`.${ext}` !== extname(path)) {
     res.sendStatus(400);
     return;
   }
 
-  if (embed === 'true') {
-    // resize image
+  res.header('content-type', mediaType);
+
+  if (embed === 'true' && mediaType.contains('image')) {
+    getFile(path)
+      .pipe(sharp().resize(1200, 630, { fit: sharp.fit.cover }).jpeg())
+      .pipe(res);
+    return;
   }
 
-  res.header('content-type', mediaType);
-  res.header('content-length', size);
   getFile(path).pipe(res);
 };
