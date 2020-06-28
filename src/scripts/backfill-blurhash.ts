@@ -35,7 +35,8 @@ const encodeImageToBlurhash = (path: string): Promise<string> => {
       join(resolve('/data'), mediaAsset.path),
     );
 
-    console.log({ blurhash });
+    mediaAsset.blurhash = blurhash;
+    await mediaAsset.save();
   }
 
   process.exit(0);
