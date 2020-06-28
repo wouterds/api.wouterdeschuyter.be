@@ -14,3 +14,5 @@ jobs:
         run: make node_modules
       - name: Linting
         run: make lint
+      - name: Build
+        run: make build
