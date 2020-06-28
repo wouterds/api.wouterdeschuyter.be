@@ -11,7 +11,7 @@ COPY ./dist/backfill-blurhash.js ./backfill-blurhash.js
 COPY ./.docker/node/crons ./crons
 COPY ./.docker/node/entrypoint.sh ./entrypoint.sh
 
-RUN apk add build-base vips-dev --upgrade --no-cache \
+RUN apk add build-base vips-dev cairo-dev pango-dev jpeg-dev giflib-dev --upgrade --no-cache \
     --repository https://alpine.global.ssl.fastly.net/alpine/edge/community/ \
     --repository https://alpine.global.ssl.fastly.net/alpine/edge/main
 
@@ -23,7 +23,7 @@ VOLUME /data
 
 COPY --from=0 /code /code
 
-RUN apk add vips --upgrade --no-cache \
+RUN apk add vips cairo pango jpeg giflib --upgrade --no-cache \
     --repository https://alpine.global.ssl.fastly.net/alpine/edge/community/ \
     --repository https://alpine.global.ssl.fastly.net/alpine/edge/main
 
