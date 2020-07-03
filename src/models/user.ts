@@ -7,16 +7,15 @@ export enum UserStatus {
   Deleted = 'deleted',
 }
 
-export interface UserDefition {
-  id: string;
-  name: string;
-  email: string;
-  status: UserStatus;
-  activatedAt: Date;
-  lastOnlineAt: Date;
+class User extends Model {
+  public id!: string;
+  public name!: string;
+  public email!: string;
+  public readonly status!: UserStatus;
+  public activatedAt!: Date;
+  public lastOnlineAt!: Date;
 }
 
-class User extends Model<UserDefition> {}
 User.init(
   {
     id: {
