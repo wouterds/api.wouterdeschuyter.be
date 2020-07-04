@@ -22,7 +22,7 @@ class MediaAsset extends Model {
   public readonly fileName?: string;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
-  public readonly deletedAt!: Date;
+  public deletedAt?: Date | null;
 }
 
 MediaAsset.init(
