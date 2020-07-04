@@ -1,7 +1,18 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from 'services/sequelize';
 
-class AccessToken extends Model {}
+export enum AccessTokenType {
+  Spotify = 'spotify',
+}
+
+class AccessToken extends Model {
+  public id!: string;
+  public type!: AccessTokenType;
+  public accessToken!: string;
+  public refreshToken!: string;
+  public expiresAt?: string;
+}
+
 AccessToken.init(
   {
     id: {
@@ -10,7 +21,7 @@ AccessToken.init(
       primaryKey: true,
     },
     type: {
-      type: DataTypes.ENUM('spotify'),
+      type: DataTypes.ENUM(AccessTokenType.Spotify),
       allowNull: false,
     },
     accessToken: { type: DataTypes.STRING, allowNull: false },
