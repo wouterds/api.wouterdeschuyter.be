@@ -20,7 +20,7 @@ class Post extends Model {
   public body!: string;
   public views!: number;
   public readonly status!: PostStatus;
-  public publishedAt!: string;
+  public publishedAt!: Date | null;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
   public readonly deletedAt?: Date | null;
