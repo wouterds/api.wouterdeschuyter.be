@@ -56,6 +56,7 @@ express.use(bodyParser.json());
 express.use(
   jwt({
     secret: `${process.env.JWT_SECRET}`,
+    algorithms: ['HS256'],
     credentialsRequired: false,
   }),
 );
