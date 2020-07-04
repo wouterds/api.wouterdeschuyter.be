@@ -20,6 +20,11 @@ export default async (req: Request, res: Response) => {
 
   const { path, mediaType } = mediaAsset;
 
+  if (!path || !mediaType) {
+    res.sendStatus(404);
+    return;
+  }
+
   if (`.${ext}` !== extname(path)) {
     res.sendStatus(400);
     return;
