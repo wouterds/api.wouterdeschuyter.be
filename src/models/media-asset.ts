@@ -6,22 +6,22 @@ import sequelize from 'services/sequelize';
 
 import User from './user';
 
-export interface MediaAssetDefition {
-  id: string;
-  userId: string;
-  name: string;
-  mediaType?: string;
-  size?: number;
-  width?: number;
-  height?: number;
-  md5?: string;
-  imagePreview?: string;
-  path?: string;
-  url?: string;
-  fileName?: string;
+class MediaAsset extends Model {
+  public id!: string;
+  public userId!: string;
+  public name!: string;
+  public mediaType?: string;
+  public size?: number;
+  public width?: number;
+  public height?: number;
+  public md5?: string;
+  public blurhash?: string;
+  public path?: string;
+  public url?: string;
+  public readonly imagePreview?: string;
+  public readonly fileName?: string;
 }
 
-class MediaAsset extends Model<MediaAssetDefition> {}
 MediaAsset.init(
   {
     id: {
