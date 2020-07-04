@@ -4,7 +4,25 @@ import sequelize from 'services/sequelize';
 import MediaAsset from './media-asset';
 import User from './user';
 
-class Post extends Model {}
+export enum PostStatus {
+  Published = 'published',
+  Draft = 'draft',
+  Deleted = 'deleted',
+}
+
+class Post extends Model {
+  public id!: string;
+  public userId!: string;
+  public mediaAssetId!: string;
+  public title!: string;
+  public slug!: string;
+  public excerpt!: string;
+  public body!: string;
+  public views!: number;
+  public readonly status!: PostStatus;
+  public publishedAt!: string;
+}
+
 Post.init(
   {
     id: {
@@ -31,14 +49,14 @@ Post.init(
       type: DataTypes.VIRTUAL,
       get(this: any) {
         if (this.getDataValue('deletedAt')) {
-          return 'DELETED';
+          return PostStatus.Deleted;
         }
 
         if (!this.getDataValue('publishedAt')) {
-          return 'DRAFT';
+          return PostStatus.Draft;
         }
 
-        return 'PUBLISHED';
+        return PostStatus.Published;
       },
     },
     publishedAt: { type: DataTypes.DATE, allowNull: true },
