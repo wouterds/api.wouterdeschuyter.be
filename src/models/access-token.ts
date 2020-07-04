@@ -10,7 +10,7 @@ class AccessToken extends Model {
   public type!: AccessTokenType;
   public accessToken!: string;
   public refreshToken!: string;
-  public expiresAt?: string;
+  public expiresAt!: Date;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
   public readonly deletedAt?: Date | null;
