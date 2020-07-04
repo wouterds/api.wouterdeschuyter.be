@@ -10,13 +10,12 @@ export enum SensorType {
   Pressure = 'pressure',
 }
 
-export interface SensorDefition {
-  id: string;
-  type: SensorType;
-  value: number;
+class Sensor extends Model {
+  public id!: string;
+  public type!: SensorType;
+  public value!: number;
 }
 
-class Sensor extends Model<SensorDefition> {}
 Sensor.init(
   {
     id: {
@@ -26,12 +25,12 @@ Sensor.init(
     },
     type: {
       type: DataTypes.ENUM(
-        'illuminance:full',
-        'illuminance:visible',
-        'illuminance:ir',
-        'temperature',
-        'humidity',
-        'pressure',
+        SensorType.IlluminanceFull,
+        SensorType.IlluminanceVisible,
+        SensorType.IlluminanceIr,
+        SensorType.Temperature,
+        SensorType.Humidity,
+        SensorType.Pressure,
       ),
       allowNull: false,
     },
