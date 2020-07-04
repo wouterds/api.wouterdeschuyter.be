@@ -14,6 +14,9 @@ class User extends Model {
   public readonly status!: UserStatus;
   public activatedAt!: Date;
   public lastOnlineAt!: Date;
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
+  public readonly deletedAt!: Date;
 }
 
 User.init(

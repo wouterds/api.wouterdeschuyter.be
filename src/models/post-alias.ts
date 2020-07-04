@@ -7,6 +7,9 @@ class PostAlias extends Model {
   public id!: string;
   public postId!: string;
   public slug!: string;
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
+  public readonly deletedAt!: Date;
 }
 
 PostAlias.init(

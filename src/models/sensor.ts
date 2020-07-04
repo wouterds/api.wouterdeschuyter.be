@@ -14,6 +14,8 @@ class Sensor extends Model {
   public id!: string;
   public type!: SensorType;
   public value!: number;
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
 }
 
 Sensor.init(

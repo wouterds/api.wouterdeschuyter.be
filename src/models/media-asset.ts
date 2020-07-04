@@ -20,6 +20,9 @@ class MediaAsset extends Model {
   public url?: string;
   public readonly imagePreview?: string;
   public readonly fileName?: string;
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
+  public readonly deletedAt!: Date;
 }
 
 MediaAsset.init(

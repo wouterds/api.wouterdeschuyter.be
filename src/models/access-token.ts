@@ -11,6 +11,9 @@ class AccessToken extends Model {
   public accessToken!: string;
   public refreshToken!: string;
   public expiresAt?: string;
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
+  public readonly deletedAt!: Date;
 }
 
 AccessToken.init(

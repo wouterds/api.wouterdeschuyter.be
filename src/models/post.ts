@@ -21,6 +21,9 @@ class Post extends Model {
   public views!: number;
   public readonly status!: PostStatus;
   public publishedAt!: string;
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
+  public readonly deletedAt!: Date;
 }
 
 Post.init(
