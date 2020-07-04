@@ -3,7 +3,12 @@ import sequelize from 'services/sequelize';
 
 import Post from './post';
 
-class PostAlias extends Model {}
+class PostAlias extends Model {
+  public id!: string;
+  public postId!: string;
+  public slug!: string;
+}
+
 PostAlias.init(
   {
     id: {
