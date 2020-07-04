@@ -23,7 +23,7 @@ class Post extends Model {
   public publishedAt!: string;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
-  public readonly deletedAt!: Date;
+  public readonly deletedAt?: Date | null;
 }
 
 Post.init(

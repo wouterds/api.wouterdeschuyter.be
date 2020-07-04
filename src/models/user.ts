@@ -16,7 +16,7 @@ class User extends Model {
   public lastOnlineAt!: Date;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
-  public readonly deletedAt!: Date;
+  public readonly deletedAt?: Date | null;
 }
 
 User.init(

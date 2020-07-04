@@ -13,7 +13,7 @@ class AccessToken extends Model {
   public expiresAt?: string;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
-  public readonly deletedAt!: Date;
+  public readonly deletedAt?: Date | null;
 }
 
 AccessToken.init(
