@@ -1,6 +1,7 @@
 import Post from 'models/post';
 import PostAlias from 'models/post-alias';
 import { Op } from 'sequelize';
+import { GraphqlContext } from 'server';
 
 const postCount = () => {
   return Post.count({
@@ -11,7 +12,7 @@ const postCount = () => {
 const post = async (
   _parent: any,
   args: { id?: string; slug?: string },
-  context: { user?: { id: string } },
+  context: GraphqlContext,
 ) => {
   const { id, slug } = args;
   const { user } = context;
@@ -50,13 +51,22 @@ const post = async (
   return postAlias.post;
 };
 
-const posts = (_parent: any, args: { limit?: number; offset?: number }) => {
-  const { limit, offset } = args;
+const posts = (
+  _parent: any,
+  args: { limit?: number; offset?: number; includeDrafts?: boolean },
+  context: GraphqlContext,
+) => {
+  const { limit, offset, includeDrafts } = args;
+
+  const where: any = {};
+  if (!(includeDrafts && context.user)) {
+    where.publishedAt = { [Op.ne]: null };
+  }
 
   return Post.findAll({
     include: ['user', 'mediaAsset'],
     order: [['publishedAt', 'desc']],
-    where: { publishedAt: { [Op.ne]: null } },
+    where,
     limit,
     offset,
   });
