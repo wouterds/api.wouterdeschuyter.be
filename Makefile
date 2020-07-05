@@ -30,6 +30,8 @@ lint: node_modules
 			-e JWT_SECRET \
 			-e MAILJET_API_KEY \
 			-e MAILJET_API_SECRET \
+			-e MAIL_SENDER_NAME \
+			-e MAIL_SENDER_EMAIL \
 			-e SENSORS_API \
 			-e SPOTIFY_CLIENT_ID \
 			-e SPOTIFY_CLIENT_SECRET \
