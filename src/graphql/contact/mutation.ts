@@ -14,7 +14,7 @@ const contact = (
   return Mail.send({
     sender: {
       name: `Website (${name})`,
-      email: 'no-reply@wouterdeschuyter.be',
+      email: process.env.MAIL_SENDER_EMAIL as string,
     },
     receiver: {
       name: 'Wouter De Schuyter',
