@@ -41,7 +41,7 @@ export default async (req: Request, res: Response) => {
 
   if (thumbnail === 'true' && mediaType.includes('image')) {
     getFile(path)
-      .pipe(sharp().resize(200, 200, { fit: sharp.fit.cover }).jpeg())
+      .pipe(sharp().resize(200, 150, { fit: sharp.fit.cover }).jpeg())
       .pipe(res);
     return;
   }
