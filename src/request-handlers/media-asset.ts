@@ -9,7 +9,7 @@ sharp.cache(false);
 
 export default async (req: Request, res: Response) => {
   const { id, ext } = req.params;
-  const { embed } = req.query;
+  const { embed, thumbnail } = req.query;
 
   const mediaAsset = await MediaAsset.findOne({ where: { id } });
 
@@ -35,6 +35,13 @@ export default async (req: Request, res: Response) => {
   if (embed === 'true' && mediaType.includes('image')) {
     getFile(path)
       .pipe(sharp().resize(1200, 630, { fit: sharp.fit.cover }).jpeg())
+      .pipe(res);
+    return;
+  }
+
+  if (thumbnail === 'true' && mediaType.includes('image')) {
+    getFile(path)
+      .pipe(sharp().resize(200, 200, { fit: sharp.fit.cover }).jpeg())
       .pipe(res);
     return;
   }
