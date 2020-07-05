@@ -65,7 +65,10 @@ const posts = (
 
   return Post.findAll({
     include: ['user', 'mediaAsset'],
-    order: [['publishedAt', 'desc']],
+    order: [
+      ['publishedAt', 'desc'],
+      ['createdAt', 'desc'],
+    ],
     where,
     limit,
     offset,
