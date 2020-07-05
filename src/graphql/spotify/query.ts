@@ -2,7 +2,7 @@ import {
   spotifyGetCurrentSongPlaying,
   spotifyGetLastPlayedSong,
   spotifyIsAuthorized,
-} from 'services/spotify';
+} from 'functions/spotify';
 
 const spotifyIsConnected = () => spotifyIsAuthorized();
 

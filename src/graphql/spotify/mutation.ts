@@ -1,4 +1,4 @@
-import { spotifyAuthorize, spotifyCacheAccessToken } from 'services/spotify';
+import { spotifyAuthorize, spotifyCacheAccessToken } from 'functions/spotify';
 
 const spotifyAuthorizeHandler = async (
   _parent: any,
