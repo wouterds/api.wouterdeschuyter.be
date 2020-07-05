@@ -4,10 +4,13 @@ const mediaAssets = (_parent: any, args: { ids?: string[] }) => {
   const { ids } = args;
 
   if (ids) {
-    return MediaAsset.findAll({ where: { id: ids } });
+    return MediaAsset.findAll({
+      where: { id: ids },
+      order: [['createdAt', 'desc']],
+    });
   }
 
-  return MediaAsset.findAll();
+  return MediaAsset.findAll({ order: [['createdAt', 'desc']] });
 };
 
 const mediaAsset = (_parent: any, args: { id: string }) => {
