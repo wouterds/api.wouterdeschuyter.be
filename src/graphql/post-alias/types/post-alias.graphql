@@ -1,0 +1,7 @@
+type PostAlias {
+  id: String
+  postId: String
+  slug: String
+  post: Post
+  createdAt: String
+}
