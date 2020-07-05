@@ -1,8 +1,8 @@
+import { getFileSize, saveFile } from 'functions/storage';
 import hasha from 'hasha';
 import { imageSize } from 'image-size';
 import MediaAsset from 'models/media-asset';
 import { extname } from 'path';
-import { getFileSize, saveFile } from 'services/storage';
 import { v4 as uuidv4 } from 'uuid';
 
 const addMediaAssetFile = async (

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
+import { getFile } from 'functions/storage';
 import MediaAsset from 'models/media-asset';
 import { extname } from 'path';
-import { getFile } from 'services/storage';
 import sharp from 'sharp';
 
 // https://github.com/lovell/sharp/blob/master/docs/install.md#alpine-linux
