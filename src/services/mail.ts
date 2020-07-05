@@ -89,13 +89,13 @@ const send = async (options: SendOptions) => {
   }
 };
 
-export const System = {
+export const SystemSender = {
   name: `${process.env.MAIL_SENDER_NAME}`,
   email: `${process.env.MAIL_SENDER_EMAIL}`,
 };
 
-const MailService = {
+const Mail = {
   send,
 };
 
-export default MailService;
+export default Mail;

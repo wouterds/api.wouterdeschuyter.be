@@ -1,4 +1,4 @@
-import MailService from 'services/mail';
+import Mail from 'services/mail';
 
 const contact = (
   _parent: any,
@@ -11,7 +11,7 @@ const contact = (
 ) => {
   const { name, email, subject, message } = args;
 
-  return MailService.send({
+  return Mail.send({
     sender: {
       name: `Website (${name})`,
       email: 'no-reply@wouterdeschuyter.be',
