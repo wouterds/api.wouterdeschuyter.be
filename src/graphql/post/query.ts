@@ -51,7 +51,7 @@ const post = async (
   return postAlias.post;
 };
 
-const posts = (
+const posts = async (
   _parent: any,
   args: { limit?: number; offset?: number; includeDrafts?: boolean },
   context: GraphqlContext,
@@ -63,16 +63,18 @@ const posts = (
     where.publishedAt = { [Op.ne]: null };
   }
 
-  return Post.findAll({
+  const posts = await Post.findAll({
     include: ['user', 'mediaAsset'],
-    order: [
-      ['publishedAt', 'desc'],
-      ['createdAt', 'desc'],
-    ],
+    order: [['publishedAt', 'desc']],
     where,
     limit,
     offset,
   });
+
+  const drafts = posts.filter((post) => !post.publishedAt);
+  const published = posts.filter((post) => !!post.publishedAt);
+
+  return [...drafts, ...published];
 };
 
 export default {
