@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      ENV: production
+      APP_URL: ${{ secrets.PRODUCTION_APP_URL }}
       DATABASE_HOST: ${{ secrets.PRODUCTION_DATABASE_HOST }}
       DATABASE_NAME: ${{ secrets.PRODUCTION_DATABASE_NAME }}
       DATABASE_USER: ${{ secrets.PRODUCTION_DATABASE_USER }}
