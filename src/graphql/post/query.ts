@@ -31,7 +31,10 @@ const post = async (
     where.slug = slug;
   }
 
-  const post = await Post.findOne({ where, include: ['user', 'mediaAsset'] });
+  const post = await Post.findOne({
+    where,
+    include: [{ all: true, nested: true }],
+  });
   if (post) {
     return post;
   }
@@ -42,7 +45,7 @@ const post = async (
 
   const postAlias = await PostAlias.findOne({
     where: { slug },
-    include: ['post'],
+    include: [{ all: true, nested: true }],
   });
   if (!postAlias) {
     return null;
@@ -64,7 +67,7 @@ const posts = async (
   }
 
   const posts = await Post.findAll({
-    include: ['user', 'mediaAsset'],
+    include: [{ all: true, nested: true }],
     order: [['publishedAt', 'desc']],
     where,
     limit,

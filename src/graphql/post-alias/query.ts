@@ -7,7 +7,7 @@ const postAliases = async (
   const { limit, offset } = args;
 
   return PostAlias.findAll({
-    include: ['post'],
+    include: [{ all: true, nested: true }],
     order: [['createdAt', 'desc']],
     limit,
     offset,
