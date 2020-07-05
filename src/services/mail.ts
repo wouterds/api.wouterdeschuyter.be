@@ -90,8 +90,8 @@ const send = async (options: SendOptions) => {
 };
 
 export const SystemSender = {
-  name: `${process.env.MAIL_SENDER_NAME}`,
-  email: `${process.env.MAIL_SENDER_EMAIL}`,
+  name: process.env.MAIL_SENDER_NAME as string,
+  email: process.env.MAIL_SENDER_EMAIL as string,
 };
 
 const Mail = {
