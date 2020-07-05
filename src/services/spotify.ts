@@ -16,9 +16,9 @@ export const spotifyAuthorize = async (
       'Content-Type': 'application/x-www-form-urlencoded',
     },
     params: {
-      grant_type: 'authorization_code', // eslint-disable-line
+      grant_type: 'authorization_code',
       code: authorizationCode,
-      redirect_uri: redirectUri, // eslint-disable-line
+      redirect_uri: redirectUri,
     },
   });
 
@@ -67,8 +67,8 @@ export const spotifyRefreshAccessToken = async (refreshToken: string) => {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
     params: {
-      grant_type: 'refresh_token', // eslint-disable-line
-      refresh_token: refreshToken, // eslint-disable-line
+      grant_type: 'refresh_token',
+      refresh_token: refreshToken,
     },
   });
 
