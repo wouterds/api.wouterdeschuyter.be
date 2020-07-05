@@ -1,6 +1,7 @@
-import { format as formatDate } from 'date-fns';
+import { differenceInMinutes, format as formatDate } from 'date-fns';
 import { cleanUserAgent } from 'functions/user-agent';
 import hasha from 'hasha';
+import jsonwebtoken from 'jsonwebtoken';
 import AuthenticationRequest from 'models/authentication-request';
 import User from 'models/user';
 import { GraphqlContext } from 'server';
@@ -61,8 +62,39 @@ const createAuthenticationRequest = async (
   return true;
 };
 
-const consomeAuthenticationRequest = async () => {
-  return '';
+const consomeAuthenticationRequest = async (
+  _parent: any,
+  args: { token: string },
+) => {
+  const { token } = args;
+
+  const authRequest = await AuthenticationRequest.findOne({ where: { token } });
+  if (!authRequest) {
+    return null;
+  }
+
+  if (authRequest.consumedAt) {
+    return null;
+  }
+
+  if (
+    differenceInMinutes(new Date(), new Date(authRequest.createdAt)) >=
+    authRequestValidForMinutes
+  ) {
+    return null;
+  }
+
+  const user = await User.findOne({ where: { id: authRequest.userId } });
+  if (!user) {
+    return null;
+  }
+
+  authRequest.consumedAt = new Date();
+  authRequest.save();
+
+  return jsonwebtoken.sign({ id: user.id }, `${process.env.JWT_SECRET}`, {
+    expiresIn: '30 days',
+  });
 };
 
 export default {
