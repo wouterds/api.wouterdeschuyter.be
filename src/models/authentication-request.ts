@@ -1,6 +1,8 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from 'services/sequelize';
 
+import User from './user';
+
 class AuthenticationRequest extends Model {
   public token!: string;
   public userId!: string;
@@ -30,5 +32,7 @@ AuthenticationRequest.init(
     ],
   },
 );
+
+AuthenticationRequest.belongsTo(User, { as: 'user', constraints: false });
 
 export default AuthenticationRequest;
