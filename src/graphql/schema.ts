@@ -1,5 +1,6 @@
 import { mergeSchemas } from 'graphql-tools';
 
+import authenticationRequest from './authentication-request/schema';
 import contact from './contact/schema';
 import mediaAsset from './media-asset/schema';
 import postAlias from './post-alias/schema';
@@ -9,5 +10,14 @@ import spotify from './spotify/schema';
 import user from './user/schema';
 
 export default mergeSchemas({
-  schemas: [contact, mediaAsset, post, postAlias, sensor, user, spotify],
+  schemas: [
+    contact,
+    mediaAsset,
+    post,
+    postAlias,
+    sensor,
+    user,
+    spotify,
+    authenticationRequest,
+  ],
 });

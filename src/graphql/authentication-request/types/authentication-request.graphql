@@ -1,0 +1,8 @@
+type AuthenticationRequest {
+  token: String
+  userId: String
+  user: User
+  userAgent: String
+  ip: String
+  createdAt: String
+}
