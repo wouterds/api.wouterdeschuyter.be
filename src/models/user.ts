@@ -9,7 +9,7 @@ export enum UserStatus {
 
 class User extends Model {
   public id!: string;
-  public name!: string;
+  public name?: string | null;
   public email!: string;
   public readonly status!: UserStatus;
   public activatedAt!: Date;
@@ -26,7 +26,7 @@ User.init(
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    name: { type: DataTypes.STRING(64), allowNull: false },
+    name: { type: DataTypes.STRING(64), allowNull: true },
     email: { type: DataTypes.STRING(64), allowNull: false },
     status: {
       type: DataTypes.VIRTUAL,
