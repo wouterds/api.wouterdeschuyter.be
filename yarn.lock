@@ -1454,7 +1454,7 @@
   resolved "https://registry.yarnpkg.com/@types/node-mailjet/-/node-mailjet-3.3.3.tgz#ddde7d853b3ac8cf5117fc5d435120546b136e5b"
   integrity sha512-/GlRgVDiCU5eabpwbMsMPHFohEb4IZuuwWPXviLVxaLYll8rjrLAmwthYd5O55+vSBtD6jt77NDRiOuQ+FRX+A==
 
-"@types/node@*", "@types/node@>=8.0.0", "@types/node@^14.0.11":
+"@types/node@*", "@types/node@^14.0.11":
   version "14.0.20"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.20.tgz#0da05cddbc761e1fa98af88a17244c8c1ff37231"
   integrity sha512-MRn/NP3dee8yL5QhbSA6riuwkS+UOcsPUMOIOG3KMUQpuor/2TopdRBu8QaaB4fGU+gz/bzyDWt0FtUbeJ8H1A==
@@ -1463,6 +1463,11 @@
   version "10.17.26"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.17.26.tgz#a8a119960bff16b823be4c617da028570779bcfd"
   integrity sha512-myMwkO2Cr82kirHY8uknNRHEVtn0wV3DTQfkrjx17jmkstDRZ24gNUdl8AHXVyVclTYI/bNjgTPTAWvWLqXqkw==
+
+"@types/node@^13.9.8":
+  version "13.13.14"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.14.tgz#20cd7d2a98f0c3b08d379f4ea9e6b315d2019529"
+  integrity sha512-Az3QsOt1U/K1pbCQ0TXGELTuTkPLOiFIQf3ILzbOyo0FqgV9SxRnxbxM5QlAveERZMHpZY+7u3Jz2tKyl+yg6g==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -5417,17 +5422,18 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-mariadb@2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/mariadb/-/mariadb-2.3.1.tgz#bbc05c82aa4bf3fe58e54b1735e94a3a43fa4bff"
-  integrity sha512-suv+ygoiS+tQSKmxgzJsGV9R+USN8g6Ql+GuMo9k7alD6FxOT/lwebLHy63/7yPZfVtlyAitK1tPd7ZoFhN/Sg==
+mariadb@2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/mariadb/-/mariadb-2.4.1.tgz#dc72d332af467ff653f2e11bbfae27ca131dc7af"
+  integrity sha512-WTM1EfUfqaLh8NdUdSqwX2HVf0mme9CDkfez35E9Txf+VvUVWOMbZY5dSqGhbDDiVXQFJefuwxb8WHUg6J9M2A==
   dependencies:
     "@types/geojson" "^7946.0.7"
-    "@types/node" ">=8.0.0"
+    "@types/node" "^13.9.8"
     denque "^1.4.1"
     iconv-lite "^0.5.1"
     long "^4.0.0"
-    moment-timezone "^0.5.27"
+    moment-timezone "^0.5.31"
+    please-upgrade-node "^3.2.0"
 
 md5.js@^1.3.4:
   version "1.3.5"
@@ -5634,7 +5640,7 @@ mkdirp@^1.0.3:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
-moment-timezone@^0.5.27, moment-timezone@^0.5.31:
+moment-timezone@^0.5.31:
   version "0.5.31"
   resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.31.tgz#9c40d8c5026f0c7ab46eda3d63e49c155148de05"
   integrity sha512-+GgHNg8xRhMXfEbv81iDtrVeTcWt0kWmTEY1XQK14dICTXnWJnT0dxdlPspwqF3keKMVPXwayEsk1DI0AA/jdA==
