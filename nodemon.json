@@ -1,5 +1,5 @@
 {
   "watch": ["src"],
-  "exec": "yarn run lint && yarn run server:dev",
+  "exec": "yarn run server:dev",
   "ext": "ts,graphql"
 }
