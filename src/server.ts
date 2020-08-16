@@ -1,6 +1,6 @@
 import { ApolloServer } from 'apollo-server-express';
 import bodyParser from 'body-parser';
-import Express, { Request } from 'express';
+import express, { Request } from 'express';
 import jwt from 'express-jwt';
 import User, { UserStatus } from 'models/user';
 
@@ -13,8 +13,8 @@ export interface GraphqlContext {
   userAgent: string;
 }
 
-const express = Express();
-express.disable('x-powered-by');
+const app = express();
+app.disable('x-powered-by');
 
 const apollo = new ApolloServer({
   schema,
@@ -52,8 +52,8 @@ const apollo = new ApolloServer({
 });
 
 // Middleware
-express.use(bodyParser.json());
-express.use(
+app.use(bodyParser.json());
+app.use(
   jwt({
     secret: `${process.env.JWT_SECRET}`,
     algorithms: ['HS256'],
@@ -62,14 +62,14 @@ express.use(
 );
 
 // Healthcheck
-express.get('/ping', requestHandlers.ping);
-express.get('/media-assets/:id.:ext', requestHandlers.mediaAsset);
+app.get('/ping', requestHandlers.ping);
+app.get('/media-assets/:id.:ext', requestHandlers.mediaAsset);
 
 // Link Apollo with Express
-apollo.applyMiddleware({ app: express, path: '/' });
+apollo.applyMiddleware({ app: app, path: '/' });
 
 // Start server on port 3001
-express.listen(3001, () => {
+app.listen(3001, () => {
   console.log(
     `> Application is running on http://localhost:3001${apollo.graphqlPath} 🚀`,
   );
