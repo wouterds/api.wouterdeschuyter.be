@@ -1,6 +1,5 @@
 import { ApolloServer } from 'apollo-server-express';
-import bodyParser from 'body-parser';
-import express, { Request } from 'express';
+import express, { json, Request } from 'express';
 import jwt from 'express-jwt';
 import User, { UserStatus } from 'models/user';
 
@@ -52,7 +51,7 @@ const apollo = new ApolloServer({
 });
 
 // Middleware
-app.use(bodyParser.json());
+app.use(json());
 app.use(
   jwt({
     secret: `${process.env.JWT_SECRET}`,
