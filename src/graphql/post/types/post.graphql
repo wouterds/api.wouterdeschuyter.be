@@ -10,4 +10,5 @@ type Post {
   status: String
   createdAt: String
   publishedAt: String
+  postAliases: [PostAlias]
 }

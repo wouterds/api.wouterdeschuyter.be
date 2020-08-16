@@ -2,6 +2,7 @@ import { DataTypes, Model } from 'sequelize';
 import sequelize from 'services/sequelize';
 
 import MediaAsset from './media-asset';
+import PostAlias from './post-alias';
 import User from './user';
 
 export enum PostStatus {
@@ -19,6 +20,7 @@ class Post extends Model {
   public excerpt!: string;
   public body!: string;
   public views!: number;
+  public postAliases!: PostAlias[];
   public readonly status!: PostStatus;
   public publishedAt!: Date | null;
   public readonly createdAt!: Date;
@@ -60,6 +62,14 @@ Post.init(
         }
 
         return PostStatus.Published;
+      },
+    },
+    postAliases: {
+      type: DataTypes.VIRTUAL,
+      get(this: any) {
+        const postId = this.getDataValue('id');
+
+        return PostAlias.findAll({ where: { postId } });
       },
     },
     publishedAt: { type: DataTypes.DATE, allowNull: true },
