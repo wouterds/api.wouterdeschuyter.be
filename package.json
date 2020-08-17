@@ -24,7 +24,7 @@
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "express-jwt": "^6.0.0",
-    "graphql-tools": "^6.0.15",
+    "graphql-tools": "^6.0.18",
     "graphql-upload": "^11.0.0",
     "hasha": "^5.2.0",
     "image-size": "^0.8.3",
