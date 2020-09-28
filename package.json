@@ -52,7 +52,7 @@
     "@types/lodash": "^4.14.159",
     "@types/node": "^14.11.2",
     "@types/qs": "^6.9.4",
-    "@types/sharp": "^0.25.1",
+    "@types/sharp": "^0.26.0",
     "@types/useragent": "^2.1.1",
     "@types/uuid": "^8.3.0",
     "@types/validator": "^13.1.0",
